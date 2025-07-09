@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth';
 
+//For git changes to record
+//for git changes to record new
 @Component({
 selector: 'app-login',
 standalone: true,
