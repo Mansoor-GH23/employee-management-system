@@ -1,5 +1,0 @@
-<nav class="navbar"> <a routerLink="/employee" routerLinkActive="active">Employee</a>
-     <a *ngIf="authService.isAdmin()" routerLink="/admin" routerLinkActive="active">Admin Panel</a>
-      <span class="user-info">Welcome, {{ username }}</span> 
-      <button (click)="logout()">Logout</button> </nav> <hr />
-       <router-outlet></router-outlet>
