@@ -1,0 +1,21 @@
+2025-06-21 17:50:06.887 -07:00 [INF] User profile is available. Using 'C:\Users\LAPTOP WORLD\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-21 17:50:07.411 -07:00 [INF] Now listening on: https://localhost:7164
+2025-06-21 17:50:07.414 -07:00 [INF] Now listening on: http://localhost:5151
+2025-06-21 17:50:07.716 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-21 17:50:07.723 -07:00 [INF] Hosting environment: Development
+2025-06-21 17:50:07.725 -07:00 [INF] Content root path: D:\VS Cummunity Projects\EmployeeManagementSystem\EmployeeManagementSystem.Api
+2025-06-21 17:50:10.075 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger - null null
+2025-06-21 17:50:10.600 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger - 301 0 null 594.2452ms
+2025-06-21 17:50:10.680 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/_vs/browserLink - null null
+2025-06-21 17:50:10.680 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-21 17:50:10.711 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/_framework/aspnetcore-browser-refresh.js - 200 16541 application/javascript; charset=utf-8 31.3356ms
+2025-06-21 17:50:10.758 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/_vs/browserLink - 200 null text/javascript; charset=UTF-8 78.9512ms
+2025-06-21 17:50:10.993 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger/v1/swagger.json - null null
+2025-06-21 17:50:11.024 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.1832ms
+2025-06-21 17:51:38.532 -07:00 [INF] Request starting HTTP/2 POST https://localhost:7164/api/Auth/login - application/json 45
+2025-06-21 17:51:38.665 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api)'
+2025-06-21 17:51:38.742 -07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(EmployeeManagementSystem.Api.DTOs.LoginDto) on controller EmployeeManagementSystem.Api.Controllers.AuthController (EmployeeManagementSystem.Api).
+2025-06-21 17:51:39.254 -07:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-06-21 17:51:39.303 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api) in 549.3087ms
+2025-06-21 17:51:39.308 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api)'
+2025-06-21 17:51:39.314 -07:00 [INF] Request finished HTTP/2 POST https://localhost:7164/api/Auth/login - 400 null application/problem+json; charset=utf-8 782.7271ms
