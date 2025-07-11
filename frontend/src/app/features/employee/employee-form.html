@@ -1,0 +1,89 @@
+<div class="employee-form-container">
+  <h2>{{ isEditMode ? 'Edit Employee' : 'Add New Employee' }}</h2>
+
+  <form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+    
+    <!-- Employee Code -->
+    <div class="form-group">
+      <label for="employeeCode">Employee Code</label>
+      <input
+        type="text"
+        id="employeeCode"
+        [(ngModel)]="employee.employeeCode"
+        name="employeeCode"
+        required
+      />
+    </div>
+
+    <!-- Full Name -->
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input
+        type="text"
+        id="fullName"
+        [(ngModel)]="employee.fullName"
+        name="fullName"
+        required
+      />
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        [(ngModel)]="employee.email"
+        name="email"
+        required
+      />
+    </div>
+
+    <!-- Department -->
+    <div class="form-group">
+      <label for="department">Department</label>
+      <input
+        type="text"
+        id="department"
+        [(ngModel)]="employee.department"
+        name="department"
+        required
+      />
+    </div>
+
+    <!-- Date of Joining -->
+    <div class="form-group">
+      <label for="dateOfJoining">Date of Joining</label>
+      <input
+        type="date"
+        id="dateOfJoining"
+        [(ngModel)]="employee.dateOfJoining"
+        name="dateOfJoining"
+        required
+      />
+    </div>
+
+    <!-- Salary -->
+    <div class="form-group">
+      <label for="salary">Salary</label>
+      <input
+        type="number"
+        id="salary"
+        [(ngModel)]="employee.salary"
+        name="salary"
+        required
+      />
+    </div>
+
+    <!-- Error Message -->
+    <div class="error" *ngIf="error">{{ error }}</div>
+
+    <!-- Buttons -->
+    <div class="form-buttons">
+      <button type="submit" [disabled]="isSubmitting">
+        {{ isEditMode ? 'Update' : 'Add' }}
+      </button>
+      <button type="button" (click)="cancel()" [disabled]="isSubmitting">Cancel</button>
+    </div>
+  </form>
+</div>
