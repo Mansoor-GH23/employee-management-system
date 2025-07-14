@@ -1,32 +1,32 @@
 name: Frontend CI (Angular)
 
 on:
-push:
-paths:
-- 'Frontend/'
-pull_request:
-paths:
-- 'Frontend/'
+  push:
+    paths:
+      - 'frontend/**'
+  pull_request:
+    paths:
+      - 'frontend/**'
 
 jobs:
-build:
-runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-defaults:
-  run:
-    working-directory: Frontend
+    defaults:
+      run:
+        working-directory: Frontend
 
-steps:
-- name: Checkout
-  uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-- name: Setup Node.js
-  uses: actions/setup-node@v4
-  with:
-    node-version: '18'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
 
-- name: Install dependencies
-  run: npm install
+      - name: Install dependencies
+        run: npm install
 
-- name: Build Angular app
-  run: npm run build
+      - name: Build Angular app
+        run: npm run build
