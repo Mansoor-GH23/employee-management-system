@@ -3,10 +3,10 @@ name: Frontend CI (Angular)
 on:
 push:
 paths:
-- 'frontend/'
+- 'Frontend/'
 pull_request:
 paths:
-- 'frontend/'
+- 'Frontend/'
 
 jobs:
 build:
@@ -14,7 +14,7 @@ runs-on: ubuntu-latest
 
 defaults:
   run:
-    working-directory: frontend
+    working-directory: Frontend
 
 steps:
 - name: Checkout
