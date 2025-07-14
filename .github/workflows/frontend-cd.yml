@@ -30,6 +30,6 @@ jobs:
         run: npm run build -- --base-href=/employee-management-system/
 
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/frontend
+        run: npx angular-cli-ghpages --dir=dist/employee-management-client --branch=gh-pages --name="Mansoor-GH23" --email="mansoor@example.com"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
