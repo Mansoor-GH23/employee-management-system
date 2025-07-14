@@ -1,4 +1,4 @@
-name: Frontend CD (Angular Deploy)
+name: Frontend CD (Angular Deploy to GitHub Pages)
 
 on:
   push:
@@ -9,27 +9,28 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: frontend
-
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22.12.0
+          node-version: '22.12.0'
 
       - name: Install dependencies
+        working-directory: frontend
         run: npm install
 
-      - name: Build Angular App
-        run: npm run build -- --base-href=/employee-management-system/
+      - name: Build Angular production
+        working-directory: frontend
+        run: ng build --configuration production --base-href=/employee-management-system/
 
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/employee-management-client --branch=gh-pages --name="Mansoor-GH23" --email="mansoor@example.com"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: frontend
+        uses: angular-schule/angular-cli-ghpages@v2
+        with:
+          build-target: employee-management-client:build:production
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          deploy_branch: gh-pages
+          base_href: /employee-management-system/
