@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "clean": "rimraf dist out-tsc node_modules package-lock.json",
+    "deploy": "ng deploy --base-href=/employee-management-system/",
     "serve:ssr:employee-management-client": "node dist/employee-management-client/server/server.mjs"
   },
   "private": true,
