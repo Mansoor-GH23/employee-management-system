@@ -7,3 +7,4 @@ bootstrapApplication(AppComponent, appConfig)
 .catch(err => console.error(err));
 
 // Test CI workflow in main.ts ...434334343cd.daada
+// Test CD workflow in main.ts ...
