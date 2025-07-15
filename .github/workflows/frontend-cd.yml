@@ -1,39 +1,37 @@
-name: Frontend CD (Angular)
+name: Deploy Angular App to GitHub Pages
 
 on:
-push:
-branches:
-- main
-paths:
-- 'frontend/**'
-- '.github/workflows/frontend-cd.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'frontend/**'
 
 jobs:
-deploy:
-runs-on: ubuntu-latest
-defaults:
-run:
-working-directory: frontend
+  deploy:
+    runs-on: ubuntu-latest
 
-steps:
-- name: Checkout code
-  uses: actions/checkout@v4
+    defaults:
+      run:
+        working-directory: frontend
 
-- name: Setup Node
-  uses: actions/setup-node@v4
-  with:
-    node-version: 22.12.0
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
 
-- name: Install dependencies
-  run: npm ci
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.12.0
 
-- name: Build Angular App
-  run: npm run build -- --base-href=/employee-management-system/
+      - name: Install dependencies
+        run: npm ci
 
-- name: Deploy to GitHub Pages
-  uses: JamesIves/github-pages-deploy-action@v4
-  with:
-    branch: gh-pages
-    folder: dist/employee-management-client
-    clean: true
-    token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Angular App
+        run: npm run build -- --base-href=/employee-management-system/
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: frontend/dist/employee-management-client
