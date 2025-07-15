@@ -38,6 +38,7 @@
     "@types/jquery": "^3.5.32",
     "@types/jwt-decode": "^2.2.1",
     "@types/node": "^20.19.4",
+    "angular-cli-ghpages": "^2.0.3",
     "jasmine-core": "~5.1.0",
     "karma": "^6.4.4",
     "karma-chrome-launcher": "^3.2.0",
