@@ -9,4 +9,4 @@ bootstrapApplication(AppComponent, appConfig)
 // Test CI workflow in main.ts ...434334343cd.daada
 // Test CD workflow in main.ts ...
 // Test Main branch to test GitHub Actions workflow for CD
-// Testing CD workflow in main.ts after changes in frontend-cd.yml
+// Testing CD workflow in main.ts after changes in frontend-cd.yml.
