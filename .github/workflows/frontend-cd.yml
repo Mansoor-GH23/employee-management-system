@@ -15,7 +15,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: frontend/employee-management-client
+        working-directory: frontend
 
     steps:
       - name: Checkout Repo
