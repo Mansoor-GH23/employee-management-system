@@ -6,9 +6,11 @@ on:
       - main
     paths:
       - 'frontend/**'
+  workflow_dispatch:
 
 jobs:
   deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     defaults:
