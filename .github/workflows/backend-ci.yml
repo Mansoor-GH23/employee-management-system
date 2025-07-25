@@ -12,8 +12,24 @@ paths:
 
 jobs:
 build-and-test:
+name: Restore, Build, Test (NUnit)
 runs-on: windows-latest
 
 steps:
   - name: Checkout repository
     uses: actions/checkout@v4
+
+  - name: Restore NuGet packages with offline config
+    run: dotnet restore Backend/EmployeeManagementSystem.sln --configfile Backend/nuget.config
+
+  - name: Build solution
+    run: dotnet build Backend/EmployeeManagementSystem.sln --no-restore --configuration Release
+
+  - name: Run tests (NUnit)
+    run: dotnet test Backend/EmployeeManagementSystem.Tests/EmployeeManagementSystem.Tests.csproj --no-build --configuration Release --logger "trx;LogFileName=test-results.trx"
+
+  - name: Upload test results
+    uses: actions/upload-artifact@v4
+    with:
+      name: NUnit-Test-Results
+      path: '**/TestResults/*.trx'
