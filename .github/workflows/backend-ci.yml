@@ -1,31 +1,32 @@
-name: Backend CI Workflow
+name: Backend CI
 
 on:
   push:
     paths:
       - 'Backend/**'
+      - '.github/workflows/backend-ci.yml'
   pull_request:
     paths:
       - 'Backend/**'
+      - '.github/workflows/backend-ci.yml'
 
 jobs:
-  build-and-test:
+  build:
     runs-on: windows-latest
-
     steps:
-      - name: Checkout source code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup .NET 8 SDK
+      - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore Backend/EmployeeManagementSystem.sln
+        run: dotnet restore Backend/EmployeeManagementSystem.sln --configfile Backend/nuget.config
 
       - name: Build solution
-        run: dotnet build Backend/EmployeeManagementSystem.sln --configuration Release --no-restore
+        run: dotnet build Backend/EmployeeManagementSystem.sln --no-restore --configuration Release
 
       - name: Run tests
-        run: dotnet test Backend/EmployeeManagementSystem.Tests/EmployeeManagementSystem.Tests.csproj --configuration Release --no-build --verbosity normal
+        run: dotnet test Backend/EmployeeManagementSystem.Tests/EmployeeManagementSystem.Tests.csproj --no-build --configuration Release --verbosity normal
