@@ -23,7 +23,7 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore Backend/EmployeeManagementSystem.sln
+        run: dotnet restore Backend/EmployeeManagementSystem.sln --configfile Backend/nuget.config	
 
       - name: Build solution
         run: dotnet build Backend/EmployeeManagementSystem.sln --no-restore --configuration Release
