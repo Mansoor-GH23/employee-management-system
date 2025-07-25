@@ -24,8 +24,6 @@ jobs:
 
       - name: Restore dependencies
         run: dotnet restore Backend/EmployeeManagementSystem.sln
-	env:
-    	  NUGET_CONFIG: Backend/nuget.config
 
       - name: Build solution
         run: dotnet build Backend/EmployeeManagementSystem.sln --no-restore --configuration Release
