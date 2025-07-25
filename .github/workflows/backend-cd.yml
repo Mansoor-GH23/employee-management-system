@@ -28,7 +28,7 @@ jobs:
       run: dotnet restore EmployeeManagementSystem.sln
 
     - name: Build
-      run: dotnet build EmployeeManagementSystem.sln --configuration Release --no-restore
+      run: dotnet build EmployeeManagementSystem.sln --no-restore  --configuration Release
 
     - name: Publish
       run: dotnet publish EmployeeManagementSystem.Api/EmployeeManagementSystem.Api.csproj --configuration Release --output ./publish
