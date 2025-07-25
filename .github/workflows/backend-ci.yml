@@ -1,15 +1,17 @@
 name: Backend CI
 
 on:
-push:
-paths:
-- 'Backend/'
-- '.github/workflows/backend-ci.yml'
-pull_request:
-paths:
-- 'Backend/'
-- '.github/workflows/backend-ci.yml'
+  push:
+    paths:
+      - 'backend/**'
+  pull_request:
+    paths:
+      - 'backend/**'
 
 jobs:
-build:
-runs-on: windows-latest
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
