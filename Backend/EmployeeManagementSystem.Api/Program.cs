@@ -107,7 +107,14 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseMiddleware<EmployeeManagementSystem.Api.Middlewares.GlobalExceptionMiddleware>();
-app.UseHttpsRedirection();
+
+//app.UseHttpsRedirection();
+var isAzureContainer=Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true";
+if (!isAzureContainer)
+{
+    app.UseHttpsRedirection();
+}
+
 app.UseCors("AllowFrontend");
 app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseAuthentication();
