@@ -105,6 +105,7 @@ var app = builder.Build();
 // Enable Swagger in all environments (for testing purposes)
 app.UseSwagger();
 app.UseSwaggerUI();
+app.UseStaticFiles();
 
 app.UseMiddleware<EmployeeManagementSystem.Api.Middlewares.GlobalExceptionMiddleware>();
 
