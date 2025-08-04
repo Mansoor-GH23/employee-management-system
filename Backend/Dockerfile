@@ -18,4 +18,5 @@ COPY --from=build /app/publish .
 # Expose default port
 EXPOSE 80
 
+ENV ASPNETCORE_URLS=http://+:80
 ENTRYPOINT ["dotnet", "EmployeeManagementSystem.Api.dll"]
