@@ -8,10 +8,10 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
-// --- Logging Configuration ---
+// --- Setup Logging ---
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
@@ -20,14 +20,30 @@ Log.Logger = new LoggerConfiguration()
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog();
 
-// --- Azure App Service Compatible Port Binding ---
+// --- Force Kestrel to Listen on Port 8080 (Required by Azure App Service) ---
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-builder.WebHost.ConfigureKestrel(serverOptions =>
+builder.WebHost.ConfigureKestrel(options =>
 {
-    serverOptions.ListenAnyIP(int.Parse(port));
+    options.ListenAnyIP(int.Parse(port));
 });
 
-// --- CORS Configuration ---
+// --- Services & Dependency Injection ---
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
+
+builder.Services.AddControllers()
+    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginDtoValidator>());
+
+// --- Database: SQLite ---
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// --- CORS ---
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -39,7 +55,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-// --- Swagger Configuration ---
+// --- Swagger with JWT Auth ---
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
@@ -69,21 +85,6 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-// --- Dependency Injection ---
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddAutoMapper(typeof(MappingProfile));
-builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-builder.Services.AddScoped<IEmployeeService, EmployeeService>();
-builder.Services.AddScoped<ITokenService, TokenService>();
-
-builder.Services.AddControllers()
-    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginDtoValidator>());
-
-// --- Database ---
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-
 // --- JWT Authentication ---
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -101,7 +102,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-// --- Build the app ---
+// --- Build App ---
 var app = builder.Build();
 
 // --- Middleware Pipeline ---
@@ -110,9 +111,8 @@ app.UseSwaggerUI();
 
 app.UseStaticFiles();
 
-// Conditional HTTPS redirect: Only for local development
-var isAzureContainer = Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true";
-if (!isAzureContainer)
+// Only redirect HTTPS locally
+if (Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") != "true")
 {
     app.UseHttpsRedirection();
 }
