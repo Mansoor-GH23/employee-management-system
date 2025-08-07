@@ -20,26 +20,23 @@ Log.Logger = new LoggerConfiguration()
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog();
 
-// --- Force Kestrel to Listen on Port 8080 (Required by Azure App Service) ---
-var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+// --- Kestrel: Bind to Port 80 (Azure expects this) ---
 builder.WebHost.ConfigureKestrel(options =>
 {
-    options.ListenAnyIP(int.Parse(port));
+    options.ListenAnyIP(80);
 });
 
-// --- Services & Dependency Injection ---
+// --- Dependency Injection ---
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
-
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
-
 builder.Services.AddControllers()
     .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginDtoValidator>());
 
-// --- Database: SQLite ---
+// --- Database ---
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -55,7 +52,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-// --- Swagger with JWT Auth ---
+// --- Swagger + JWT Auth ---
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
@@ -85,7 +82,7 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-// --- JWT Authentication ---
+// --- JWT ---
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -105,7 +102,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 // --- Build App ---
 var app = builder.Build();
 
-// --- Middleware Pipeline ---
+// --- Middleware ---
 app.UseSwagger();
 app.UseSwaggerUI();
 
