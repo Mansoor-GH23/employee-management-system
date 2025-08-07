@@ -6,40 +6,42 @@ on:
       - main
 
 env:
-  AZURE_WEBAPP_NAME: ems-api-app
-  AZURE_RESOURCE_GROUP: employee-management
   IMAGE_NAME: ems-api-app
+  ACR_LOGIN_SERVER: ${{ secrets.ACR_USERNAME }}.azurecr.io
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+- name: Checkout source code
+  uses: actions/checkout@v4
 
-      - name: Log in to Azure
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+- name: Set up Docker Buildx
+  uses: docker/setup-buildx-action@v3
 
-      - name: Build and Push Docker image to Azure Container Registry
-        uses: azure/docker-login@v1
-        with:
-          login-server: <your-acr-login-server>.azurecr.io
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }}
+- name: Log in to Azure Container Registry (ACR)
+  uses: docker/login-action@v3
+  with:
+    registry: ${{ env.ACR_LOGIN_SERVER }}
+    username: ${{ secrets.ACR_USERNAME }}
+    password: ${{ secrets.ACR_PASSWORD }}
 
-      - name: Docker Build & Push
-        run: |
-          docker build -t <your-acr-login-server>.azurecr.io/${{ env.IMAGE_NAME }}:${{ github.sha }} .
-          docker push <your-acr-login-server>.azurecr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
+- name: Build and push Docker image to ACR
+  uses: docker/build-push-action@v5
+  with:
+    context: .
+    file: ./Dockerfile
+    push: true
+    tags: ${{ env.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
-      - name: Deploy to Azure Web App (Linux Container)
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          images: <your-acr-login-server>.azurecr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
+- name: Log in to Azure using Service Principal
+  uses: azure/login@v2
+  with:
+    creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+- name: Deploy to Azure Web App
+  uses: azure/webapps-deploy@v3
+  with:
+    app-name: ems-api-app
+    images: ${{ env.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+
