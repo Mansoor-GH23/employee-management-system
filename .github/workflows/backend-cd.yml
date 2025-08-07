@@ -12,36 +12,36 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-- name: Checkout source code
-  uses: actions/checkout@v4
+    - name: Checkout source code
+      uses: actions/checkout@v4
 
-- name: Set up Docker Buildx
-  uses: docker/setup-buildx-action@v3
+    - name: Set up Docker Buildx (for building multi-platform images)
+      uses: docker/setup-buildx-action@v3
 
-- name: Log in to Azure Container Registry (ACR)
-  uses: docker/login-action@v3
-  with:
-    registry: ${{ env.ACR_LOGIN_SERVER }}
-    username: ${{ secrets.ACR_USERNAME }}
-    password: ${{ secrets.ACR_PASSWORD }}
+    - name: Log in to Azure Container Registry (ACR)
+      uses: docker/login-action@v3
+      with:
+        registry: ${{ env.ACR_LOGIN_SERVER }}
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
 
-- name: Build and push Docker image to ACR
-  uses: docker/build-push-action@v5
-  with:
-    context: .
-    file: ./Dockerfile
-    push: true
-    tags: ${{ env.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+    - name: Build and push Docker image to ACR
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: ${{ env.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
-- name: Log in to Azure using Service Principal
-  uses: azure/login@v2
-  with:
-    creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Log in to Azure using Service Principal
+      uses: azure/login@v2
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-- name: Deploy to Azure Web App
-  uses: azure/webapps-deploy@v3
-  with:
-    app-name: ems-api-app
-    images: ${{ env.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
-
+    - name: Deploy to Azure Web App using the new image
+      uses: azure/webapps-deploy@v3
+      with:
+        app-name: ems-api-app
+        images: ${{ env.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
