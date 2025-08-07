@@ -2,39 +2,45 @@ name: Backend CD
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'Backend/**'
+    branches: [main]
+
+env:
+  AZURE_WEBAPP_NAME: ems-api-app
+  AZURE_RESOURCE_GROUP: employee-management-rg
+  AZURE_CONTAINER_REGISTRY: emscontainerregistry.azurecr.io
+  IMAGE_NAME: employee-management-api
 
 jobs:
-  build-and-publish:
+  deploy:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: Backend
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    - name: Checkout source
+      uses: actions/checkout@v3
 
-    - name: Setup .NET 8
-      uses: actions/setup-dotnet@v4
+    - name: Set up Docker
+      uses: docker/setup-buildx-action@v2
+
+    - name: Log in to Azure Container Registry
+      uses: azure/docker-login@v1
       with:
-        dotnet-version: '8.0.x'
+        login-server: ${{ env.AZURE_CONTAINER_REGISTRY }}
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
 
-    - name: Restore dependencies
-      run: dotnet restore EmployeeManagementSystem.sln
+    - name: Build Docker image
+      run: docker build -t ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }} .
 
-    - name: Build
-      run: dotnet build EmployeeManagementSystem.sln --no-restore  --configuration Release
+    - name: Push Docker image to ACR
+      run: docker push ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
-    - name: Publish
-      run: dotnet publish EmployeeManagementSystem.Api/EmployeeManagementSystem.Api.csproj --configuration Release --output ./publish
-
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4
+    - name: Azure login
+      uses: azure/login@v1
       with:
-        name: backend-publish-artifact
-        path: Backend/publish
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Deploy to Azure Web App (Container)
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        images: ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
