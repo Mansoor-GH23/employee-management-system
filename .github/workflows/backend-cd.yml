@@ -7,7 +7,7 @@ on:
 
 env:
   IMAGE_NAME: ems-api-app
-  ACR_LOGIN_SERVER: emsacr123.azurecr.io   # Correct your ACR login server here
+  ACR_LOGIN_SERVER: emsacr123.azurecr.io   # Correct your ACR login server here. Corrected.
 
 jobs:
   deploy:
