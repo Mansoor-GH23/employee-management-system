@@ -7,7 +7,7 @@ on:
 
 env:
   IMAGE_NAME: ems-api-app
-  ACR_LOGIN_SERVER: ${{ secrets.ACR_USERNAME }}.azurecr.io
+  ACR_LOGIN_SERVER: emsracr123.azurecr.io   # Correct your ACR login server here
 
 jobs:
   deploy:
@@ -30,8 +30,8 @@ jobs:
     - name: Build and push Docker image to ACR
       uses: docker/build-push-action@v5
       with:
-        context: ./Backend                 # Build context pointing to Backend folder
-        file: ./Backend/Dockerfile         # Path to Dockerfile inside Backend folder
+        context: ./Backend                    # Use the Backend folder as build context
+        file: ./Backend/Dockerfile            # Correct Dockerfile path
         push: true
         tags: ${{ env.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
@@ -40,8 +40,29 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Deploy to Azure Web App using the new image
-      uses: azure/webapps-deploy@v3
-      with:
-        app-name: ems-api-app
-        images: ${{ env.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+    - name: Set WEBSITES_PORT app setting on Azure Web App
+      run: |
+        az webapp config appsettings set \
+          --name ${{ env.IMAGE_NAME }} \
+          --resource-group employee-management-rg \
+          --settings WEBSITES_PORT=8181
+      # NOTE: Change 8181 here if your app listens on a different port inside the container
+
+    - name: Configure Azure Web App to use ACR image
+      run: |
+        az webapp config container set \
+          --name ${{ env.IMAGE_NAME }} \
+          --resource-group employee-management-rg \
+          --docker-custom-image-name ${{ env.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ github.sha }} \
+          --docker-registry-server-url https://${{ env.ACR_LOGIN_SERVER }} \
+          --docker-registry-server-user ${{ secrets.ACR_USERNAME }} \
+          --docker-registry-server-password ${{ secrets.ACR_PASSWORD }}
+
+    - name: Restart Azure Web App to apply changes
+      run: |
+        az webapp restart --name ${{ env.IMAGE_NAME }} --resource-group employee-management-rg
+
+    # Optional: Tail logs (commented out because this step runs indefinitely)
+    # - name: Tail Azure Web App logs
+    #   run: |
+    #     az webapp log tail --name ${{ env.IMAGE_NAME }} --resource-group employee-management-rg
