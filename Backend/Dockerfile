@@ -23,6 +23,9 @@ WORKDIR /app
 
 ENV ASPNETCORE_URLS=http://+:80
 
+# Create persistent directory for SQLite DB
+RUN mkdir -p /home/data
+
 COPY --from=build /app/publish .
 
 EXPOSE 80
