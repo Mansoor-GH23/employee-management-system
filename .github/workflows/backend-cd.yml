@@ -1,55 +1,64 @@
-name: Backend CD
+name: Build and Deploy Backend to Azure
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 env:
+  ACR_LOGIN_SERVER: esmacr123.azurecr.io        # Replace with your ACR login server
   IMAGE_NAME: ems-api-app
-  ACR_LOGIN_SERVER: emsacr123.azurecr.io   # Correct your ACR login server here. Corrected.
 
 jobs:
-  deploy:
+  build-test-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout source code
+    - name: Checkout the repo
       uses: actions/checkout@v4
 
-    - name: Set up Docker Buildx (for building multi-platform images)
-      uses: docker/setup-buildx-action@v3
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
 
-    - name: Log in to Azure Container Registry (ACR)
+    - name: Restore .NET dependencies
+      run: dotnet restore ./Backend
+
+    - name: Build .NET project
+      run: dotnet build --no-restore ./Backend
+
+    - name: Test .NET project
+      run: dotnet test --no-build --verbosity normal ./Backend/Tests
+
+    - name: Log in to Azure Container Registry
       uses: docker/login-action@v3
       with:
         registry: ${{ env.ACR_LOGIN_SERVER }}
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
 
-    - name: Build and push Docker image to ACR
+    - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
-        context: ./Backend                    # Use the Backend folder as build context
-        file: ./Backend/Dockerfile            # Correct Dockerfile path
+        context: ./Backend
+        file: ./Backend/Dockerfile
         push: true
         tags: ${{ env.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
-    - name: Log in to Azure using Service Principal
+    - name: Azure Login
       uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Set WEBSITES_PORT app setting on Azure Web App
+    - name: Configure Azure Web App Container Settings and Deploy
       run: |
         az webapp config appsettings set \
           --name ${{ env.IMAGE_NAME }} \
           --resource-group employee-management-rg \
-          --settings WEBSITES_PORT=8181
-      # NOTE: Change 8181 here if your app listens on a different port inside the container
+          --settings ASPNETCORE_ENVIRONMENT=Development WEBSITES_PORT=80
 
-    - name: Configure Azure Web App to use ACR image
-      run: |
         az webapp config container set \
           --name ${{ env.IMAGE_NAME }} \
           --resource-group employee-management-rg \
@@ -58,11 +67,12 @@ jobs:
           --docker-registry-server-user ${{ secrets.ACR_USERNAME }} \
           --docker-registry-server-password ${{ secrets.ACR_PASSWORD }}
 
-    - name: Restart Azure Web App to apply changes
-      run: |
         az webapp restart --name ${{ env.IMAGE_NAME }} --resource-group employee-management-rg
 
-    # Optional: Tail logs (commented out because this step runs indefinitely)
-    # - name: Tail Azure Web App logs
-    #   run: |
-    #     az webapp log tail --name ${{ env.IMAGE_NAME }} --resource-group employee-management-rg
+    - name: Smoke Test after Deployment
+      run: |
+        echo "Waiting for app to warm up..."
+        sleep 30
+
+        # Replace with your actual health or Swagger URL
+        curl --fail https://ems-api-app-gje0ckgkcnhfcmbd.eastus2-01.azurewebsites.net/swagger/index.html
