@@ -109,7 +109,7 @@ if (app.Environment.IsDevelopment())
         db.Users.Add(new EmployeeManagementSystem.Api.Models.User
         {
             Username = "Admin",
-            Password = "password", // Use hashed passwords in real apps
+            Password = "Admin123", // Use hashed passwords in real apps
             Role = "Admin"
         });
         db.SaveChanges();
