@@ -26,7 +26,7 @@ jobs:
           node-version: '22.12.0'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Angular app
-        run: npm run build
+        run: npm run build -- --base-href=/employee-management-system/
