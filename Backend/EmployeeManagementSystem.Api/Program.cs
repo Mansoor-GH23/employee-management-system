@@ -112,9 +112,44 @@ if (app.Environment.IsDevelopment())
             Password = "Admin123", // Use hashed passwords in real apps
             Role = "Admin"
         });
-        db.SaveChanges();
     }
-}
+
+    // Seed employee data if none exists
+    if (!db.Employees.Any())
+    {
+        db.Employees.AddRange(new List<EmployeeManagementSystem.Api.Models.Employee>
+        {
+            new EmployeeManagementSystem.Api.Models.Employee
+            {
+                EmployeeCode = "EMP001",
+                FullName = "John Doe",
+                Email = "john.doe@example.com",
+                Department = "IT",
+                DateOfJoining = new DateTime(2020, 1, 15),
+                Salary = 60000
+            },
+            new EmployeeManagementSystem.Api.Models.Employee
+            {
+                EmployeeCode = "EMP002",
+                FullName = "Jane Smith",
+                Email = "jane.smith@example.com",
+                Department = "HR",
+                DateOfJoining = new DateTime(2019, 3, 20),
+                Salary = 58000
+            },
+            new EmployeeManagementSystem.Api.Models.Employee
+            {
+                EmployeeCode = "EMP003",
+                FullName = "Alice Johnson",
+                Email = "alice.johnson@example.com",
+                Department = "Finance",
+                DateOfJoining = new DateTime(2021, 6, 10),
+                Salary = 62000
+            }
+        });
+    }
+    db.SaveChanges();
+  }
 
 // Enable Swagger UI in all environments for testing
 app.UseSwagger();
