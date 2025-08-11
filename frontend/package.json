@@ -1,6 +1,9 @@
 {
   "name": "employee-management-client",
   "version": "0.0.0",
+  "engines": {
+    "node": ">=20.19"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
