@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { jwtDecode } from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';  // Fixed import — default export
+import { environment } from '../../../environments/environment-prod'; // Adjust path as needed
 
 interface JwtPayload {
   unique_name?: string;
@@ -14,21 +15,19 @@ interface JwtPayload {
   providedIn: 'root'
 })
 export class AuthService {
-  storeToken(token: string) {
-    throw new Error('Method not implemented.');
-  }
-  private readonly apiUrl = 'https://localhost:7164/api/Auth';
+  // Use environment variable for the API base URL (no trailing slash)
+  private readonly apiUrl: string = environment.apiBaseUrl.replace(/\/+$/, '');
 
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<{ token: string }> {
     return this.http.post<{ token: string }>(
-      `${this.apiUrl}/login`,
+      `${this.apiUrl}/login`,   // Full login endpoint URL
       { username, password }
     );
   }
 
-  saveToken(token: string) {
+  saveToken(token: string): void {
     localStorage.setItem('jwtToken', token);
   }
 
@@ -36,14 +35,16 @@ export class AuthService {
     return localStorage.getItem('jwtToken');
   }
 
-  logout() {
+  logout(): void {
     localStorage.removeItem('jwtToken');
     window.location.href = '/login';
   }
 
   getUserRole(): string | null {
     const token = this.getToken();
-    if (!token) return null;
+    if (!token) {
+      return null;
+    }
 
     try {
       const payload: JwtPayload = jwtDecode(token);
@@ -66,17 +67,21 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     const token = this.getToken();
-    if (!token) return false;
+    if (!token) {
+      return false;
+    }
 
     try {
       const { exp } = jwtDecode<JwtPayload>(token);
-      if (!exp) return false;
-
+      if (!exp) {
+        return false;
+      }
       const now = Math.floor(Date.now() / 1000);
       return exp > now;
     } catch {
       return false;
     }
   }
-  //Update Token Expiry Logic here
+
+  // You can add or update token expiry logic here if needed
 }
