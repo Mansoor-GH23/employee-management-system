@@ -8,12 +8,12 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Setup Serilog
+// ------------------- Serilog -------------------
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
@@ -21,15 +21,15 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
-// Add CORS policy for local Angular and Azure live URL
+// ------------------- CORS -------------------
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
         policy
           .WithOrigins(
-             "http://localhost:4200",  // Your local Angular app
-             "https://ems-api-app-gje0ckgkcnhfcmbd.eastus2-01.azurewebsites.net"  // Your Azure live domain
+             "http://localhost:4200",
+             "https://ems-api-app-gje0ckgkcnhfcmbd.eastus2-01.azurewebsites.net"
           )
           .AllowAnyHeader()
           .AllowAnyMethod()
@@ -37,9 +37,10 @@ builder.Services.AddCors(options =>
     });
 });
 
+// ------------------- Swagger -------------------
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "EMS API", Version = "v1" });
 
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
@@ -53,28 +54,40 @@ builder.Services.AddSwaggerGen(options =>
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
-            new OpenApiSecurityScheme{ Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" } },
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme, Id = "Bearer"
+                }
+            },
             Array.Empty<string>()
         }
     });
 });
 
-// Add services to container
-builder.Services.AddControllers();
+// ------------------- Services -------------------
+builder.Services.AddControllers()
+    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginDtoValidator>());
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 
-builder.Services.AddControllers()
-    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginDtoValidator>());
+// ------------------- Database Config -------------------
+var useAzure = builder.Configuration.GetValue<bool>("UseAzureSql"); // from appsettings or env var
 
-// Configure SQLite DB context with connection string
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+{
+    if (useAzure)
+        options.UseSqlServer(builder.Configuration.GetConnectionString("AzureSqlConnection"));
+    else
+        options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
-// Configure JWT authentication
+// ------------------- JWT Auth -------------------
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -91,87 +104,66 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-// Build app
 var app = builder.Build();
 
-// Run migrations and seed DB only in Development environment
-if (app.Environment.IsDevelopment())
+// ------------------- DB Migrations & Seeding -------------------
+using (var scope = app.Services.CreateScope())
 {
-    using var scope = app.Services.CreateScope();
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-
-    // Apply migrations
     db.Database.Migrate();
 
-    // Seed data example (optional)
-    if (!db.Users.Any())
+    if (app.Environment.IsDevelopment())
     {
-        db.Users.Add(new EmployeeManagementSystem.Api.Models.User
+        if (!db.Users.Any())
         {
-            Username = "Admin",
-            Password = "Admin123", // Use hashed passwords in real apps
-            Role = "Admin"
-        });
-    }
-
-    // Seed employee data if none exists
-    if (!db.Employees.Any())
-    {
-        db.Employees.AddRange(new List<EmployeeManagementSystem.Api.Models.Employee>
+            db.Users.Add(new EmployeeManagementSystem.Api.Models.User
+            {
+                Username = "Admin",
+                Password = "Admin123",
+                Role = "Admin"
+            });
+        }
+        if (!db.Employees.Any())
         {
-            new EmployeeManagementSystem.Api.Models.Employee
-            {
-                EmployeeCode = "EMP001",
-                FullName = "John Doe",
-                Email = "john.doe@example.com",
-                Department = "IT",
-                DateOfJoining = new DateTime(2020, 1, 15),
-                Salary = 60000
-            },
-            new EmployeeManagementSystem.Api.Models.Employee
-            {
-                EmployeeCode = "EMP002",
-                FullName = "Jane Smith",
-                Email = "jane.smith@example.com",
-                Department = "HR",
-                DateOfJoining = new DateTime(2019, 3, 20),
-                Salary = 58000
-            },
-            new EmployeeManagementSystem.Api.Models.Employee
-            {
-                EmployeeCode = "EMP003",
-                FullName = "Alice Johnson",
-                Email = "alice.johnson@example.com",
-                Department = "Finance",
-                DateOfJoining = new DateTime(2021, 6, 10),
-                Salary = 62000
-            }
-        });
+            db.Employees.AddRange(
+                new EmployeeManagementSystem.Api.Models.Employee
+                {
+                    EmployeeCode = "EMP001",
+                    FullName = "John Doe",
+                    Email = "john.doe@example.com",
+                    Department = "IT",
+                    DateOfJoining = new DateTime(2020, 1, 15),
+                    Salary = 60000
+                },
+                new EmployeeManagementSystem.Api.Models.Employee
+                {
+                    EmployeeCode = "EMP002",
+                    FullName = "Jane Smith",
+                    Email = "jane.smith@example.com",
+                    Department = "HR",
+                    DateOfJoining = new DateTime(2019, 3, 20),
+                    Salary = 58000
+                }
+            );
+        }
+        db.SaveChanges();
     }
-    db.SaveChanges();
-  }
+}
 
-// Enable Swagger UI in all environments for testing
+// ------------------- Middleware -------------------
 app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseStaticFiles();
-
 app.UseMiddleware<EmployeeManagementSystem.Api.Middlewares.GlobalExceptionMiddleware>();
 
-var isAzureContainer = Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true";
-if (!isAzureContainer)
-{
+if (Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") != "true")
     app.UseHttpsRedirection();
-}
 
 app.UseCors("AllowFrontend");
-
 app.UseMiddleware<ErrorHandlingMiddleware>();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
 app.Run();
