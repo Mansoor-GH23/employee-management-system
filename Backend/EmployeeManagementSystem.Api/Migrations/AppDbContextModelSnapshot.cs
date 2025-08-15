@@ -15,7 +15,7 @@ namespace EmployeeManagementSystem.Api.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.6");
+            modelBuilder.HasAnnotation("ProductVersion", "9.0.8");
 
             modelBuilder.Entity("EmployeeManagementSystem.Api.Models.Employee", b =>
                 {
