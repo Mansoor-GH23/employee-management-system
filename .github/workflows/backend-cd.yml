@@ -1,4 +1,4 @@
-name: Build and Deploy Backend to Azure
+name: Build and Deploy Backend to Azure.
 
 on:
   push:
@@ -72,7 +72,7 @@ jobs:
     - name: Smoke Test after Deployment
       run: |
         echo "Waiting for app to warm up..."
-        sleep 120
+        sleep 150
 
         # Replace with your actual health or Swagger URL
         curl --fail https://ems-api-app-gje0ckgkcnhfcmbd.eastus2-01.azurewebsites.net/swagger/index.html
