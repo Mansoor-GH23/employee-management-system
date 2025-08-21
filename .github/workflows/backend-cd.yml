@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  ACR_LOGIN_SERVER: emsacr123.azurecr.io        # Replace with your ACR login server
+  ACR_LOGIN_SERVER: emsacr1234-bebrayhhgdd8e4gx.azurecr.io        # Replace with your ACR login server
   IMAGE_NAME: ems-api-app
 
 jobs:
