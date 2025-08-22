@@ -29,7 +29,7 @@ builder.Services.AddCors(options =>
         policy
           .WithOrigins(
              "http://localhost:4200",
-             "https://ems-api-app-gje0ckgkcnhfcmbd.eastus2-01.azurewebsites.net"
+             "https://ems-api-app-cxesaafubzgta6cp.centralus-01.azurewebsites.net"
           )
           .AllowAnyHeader()
           .AllowAnyMethod()
