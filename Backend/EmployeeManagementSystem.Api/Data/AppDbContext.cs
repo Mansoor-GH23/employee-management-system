@@ -25,6 +25,12 @@ namespace EmployeeManagementSystem.Api.Data
                 entity.Property(e => e.DateOfJoining)
                       .HasColumnType("date");
 
+                // ✅ Make Email nvarchar(256) so it’s indexable
+                entity.Property(e => e.Email)
+                      .IsRequired()
+                      .HasMaxLength(256)
+                      .HasColumnType("nvarchar(256)");
+
                 // Optional: unique constraint on Email
                 entity.HasIndex(e => e.Email).IsUnique();
 
