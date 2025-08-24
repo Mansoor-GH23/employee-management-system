@@ -7,37 +7,59 @@ namespace EmployeeManagementSystem.Api.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Employee> Employees => Set<Employee>();
+        public DbSet<User> Users => Set<User>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // Employee entity configuration
-            modelBuilder.Entity<Employee>(entity =>
+            // -------- Common (provider-agnostic) config --------
+            var employee = modelBuilder.Entity<Employee>();
+
+            employee.HasKey(e => e.Id);
+
+            employee.Property(e => e.EmployeeCode)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+            // Keep types provider-agnostic here; just constrain length & required
+            employee.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(256);
+
+            // Unique Email across providers
+            employee.HasIndex(e => e.Email).IsUnique();
+
+            // -------- Provider-specific tweaks --------
+            if (Database.IsSqlServer())
             {
-                // Salary with explicit precision (18,2) works well for money values
-                entity.Property(e => e.Salary)
-                      .HasColumnType("decimal(18,2)");
+                // SQL Server precision + true DATE column, indexable Email
+                employee.Property(e => e.Salary).HasColumnType("decimal(18,2)");
+                employee.Property(e => e.DateOfJoining).HasColumnType("date");
+                employee.Property(e => e.Email).HasColumnType("nvarchar(256)");
 
-                // Store only DATE (without time) in SQL
-                entity.Property(e => e.DateOfJoining)
-                      .HasColumnType("date");
+                // (Optional) Explicit SQL Server types for large strings
+                employee.Property(e => e.FullName).HasColumnType("nvarchar(max)");
+                employee.Property(e => e.Department).HasColumnType("nvarchar(max)");
+            }
+            else if (Database.IsSqlite())
+            {
+                // SQLite doesn't support decimal/DATE types; map appropriately
+                employee.Property(e => e.Salary).HasColumnType("REAL");        // or .HasConversion<double>()
+                employee.Property(e => e.DateOfJoining).HasColumnType("TEXT"); // stored as ISO-8601 text
+                employee.Property(e => e.Email).HasColumnType("TEXT");
+                employee.Property(e => e.FullName).HasColumnType("TEXT");
+                employee.Property(e => e.Department).HasColumnType("TEXT");
+            }
 
-                // ✅ Make Email nvarchar(256) so it’s indexable
-                entity.Property(e => e.Email)
-                      .IsRequired()
-                      .HasMaxLength(256)
-                      .HasColumnType("nvarchar(256)");
-
-                // Optional: unique constraint on Email
-                entity.HasIndex(e => e.Email).IsUnique();
-
-                // Optional: make EmployeeCode required and max length
-                entity.Property(e => e.EmployeeCode)
-                      .IsRequired()
-                      .HasMaxLength(50);
+            // -------- User entity --------
+            modelBuilder.Entity<User>(u =>
+            {
+                u.HasKey(x => x.Id);
+                u.Property(x => x.Username).IsRequired();
+                u.Property(x => x.Password).IsRequired();
+                u.Property(x => x.Role).IsRequired();
             });
         }
     }
