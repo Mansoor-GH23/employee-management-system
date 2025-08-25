@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿// Program.cs
+using Serilog;
 using EmployeeManagementSystem.Api.Data;
 using EmployeeManagementSystem.Api.Helpers;
 using EmployeeManagementSystem.Api.Repositories;
@@ -77,15 +78,18 @@ builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 
 // ------------------- Database Config -------------------
-var useAzure = builder.Configuration.GetValue<bool>("UseAzureSql"); // from appsettings or env var
+var useAzure = builder.Configuration.GetValue<bool>("UseAzureSql");
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    if (useAzure)
-        options.UseSqlServer(builder.Configuration.GetConnectionString("AzureSqlConnection"));
-    else
-        options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+builder.Services.AddDbContext<SqliteAppDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddDbContext<SqlServerAppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AzureSqlConnection")));
+
+if (useAzure)
+    builder.Services.AddScoped<AppDbContext>(sp => sp.GetRequiredService<SqlServerAppDbContext>());
+else
+    builder.Services.AddScoped<AppDbContext>(sp => sp.GetRequiredService<SqliteAppDbContext>());
 
 // ------------------- JWT Auth -------------------
 var jwtSettings = builder.Configuration.GetSection("Jwt");
@@ -109,49 +113,29 @@ var app = builder.Build();
 // ------------------- DB Migrations & Seeding -------------------
 using (var scope = app.Services.CreateScope())
 {
-    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    
-    //db.Database.Migrate();
-    if (app.Environment.IsDevelopment())
-        db.Database.EnsureCreated();  // SQLite local
-    else
-        db.Database.Migrate();        // Azure SQL in Production
+    var services = scope.ServiceProvider;
 
-    if (app.Environment.IsDevelopment())
+    try
     {
-        if (!db.Users.Any())
+        if (useAzure)
         {
-            db.Users.Add(new EmployeeManagementSystem.Api.Models.User
-            {
-                Username = "Admin",
-                Password = "Admin123",
-                Role = "Admin"
-            });
+            var sqlCtx = services.GetRequiredService<SqlServerAppDbContext>();
+            Log.Information("Using SQL Server provider: {Provider}", sqlCtx.Database.ProviderName);
+            sqlCtx.Database.Migrate();
+            SeedSampleData(sqlCtx);
         }
-        if (!db.Employees.Any())
+        else
         {
-            db.Employees.AddRange(
-                new EmployeeManagementSystem.Api.Models.Employee
-                {
-                    EmployeeCode = "EMP001",
-                    FullName = "John Doe",
-                    Email = "john.doe@example.com",
-                    Department = "IT",
-                    DateOfJoining = new DateTime(2020, 1, 15),
-                    Salary = 60000
-                },
-                new EmployeeManagementSystem.Api.Models.Employee
-                {
-                    EmployeeCode = "EMP002",
-                    FullName = "Jane Smith",
-                    Email = "jane.smith@example.com",
-                    Department = "HR",
-                    DateOfJoining = new DateTime(2019, 3, 20),
-                    Salary = 58000
-                }
-            );
+            var sqliteCtx = services.GetRequiredService<SqliteAppDbContext>();
+            Log.Information("Using SQLite provider: {Provider}", sqliteCtx.Database.ProviderName);
+            sqliteCtx.Database.Migrate();
+            SeedSampleData(sqliteCtx);
         }
-        db.SaveChanges();
+    }
+    catch (Exception ex)
+    {
+        Log.Error(ex, "An error occurred while migrating or seeding the database.");
+        throw;
     }
 }
 
@@ -172,3 +156,43 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.Run();
+
+// ------------------- Local helpers -------------------
+static void SeedSampleData(AppDbContext db)
+{
+    if (!db.Users.Any())
+    {
+        db.Users.Add(new EmployeeManagementSystem.Api.Models.User
+        {
+            Username = "Admin",
+            Password = "Admin123",
+            Role = "Admin"
+        });
+    }
+
+    if (!db.Employees.Any())
+    {
+        db.Employees.AddRange(
+            new EmployeeManagementSystem.Api.Models.Employee
+            {
+                EmployeeCode = "EMP001",
+                FullName = "John Doe",
+                Email = "john.doe@example.com",
+                Department = "IT",
+                DateOfJoining = new DateTime(2020, 1, 15),
+                Salary = 60000
+            },
+            new EmployeeManagementSystem.Api.Models.Employee
+            {
+                EmployeeCode = "EMP002",
+                FullName = "Jane Smith",
+                Email = "jane.smith@example.com",
+                Department = "HR",
+                DateOfJoining = new DateTime(2019, 3, 20),
+                Salary = 58000
+            }
+        );
+    }
+
+    db.SaveChanges();
+}

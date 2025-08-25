@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace EmployeeManagementSystem.Api.Migrations.SqlServer
+namespace EmployeeManagementSystem.Api.Migrations.SqliteMigrations
 {
-    [DbContext(typeof(AppDbContext))]
-    [Migration("20250824195510_InitialCreateSqlServer")]
-    partial class InitialCreateSqlServer
+    [DbContext(typeof(SqliteAppDbContext))]
+    [Migration("20250825045747_InitialCreate_Sqlite")]
+    partial class InitialCreate_Sqlite
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,12 +35,10 @@ namespace EmployeeManagementSystem.Api.Migrations.SqlServer
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(256)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("EmployeeCode")
                         .IsRequired()
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FullName")
@@ -48,12 +46,9 @@ namespace EmployeeManagementSystem.Api.Migrations.SqlServer
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Salary")
-                        .HasColumnType("REAL");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
 
                     b.ToTable("Employees");
                 });
@@ -70,7 +65,9 @@ namespace EmployeeManagementSystem.Api.Migrations.SqlServer
 
                     b.Property<string>("Role")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT")
+                        .HasDefaultValue("User");
 
                     b.Property<string>("Username")
                         .IsRequired()
