@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace EmployeeManagementSystem.Api.Migrations
+namespace EmployeeManagementSystem.Api.Migrations.SqliteMigrations
 {
     /// <inheritdoc />
-    public partial class InitialCreateSqlite : Migration
+    public partial class InitialCreate_Sqlite : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,12 +17,12 @@ namespace EmployeeManagementSystem.Api.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    EmployeeCode = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
+                    EmployeeCode = table.Column<string>(type: "TEXT", nullable: false),
                     FullName = table.Column<string>(type: "TEXT", nullable: false),
-                    Email = table.Column<string>(type: "TEXT", maxLength: 256, nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
                     Department = table.Column<string>(type: "TEXT", nullable: false),
                     DateOfJoining = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Salary = table.Column<decimal>(type: "REAL", nullable: false)
+                    Salary = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -37,18 +37,12 @@ namespace EmployeeManagementSystem.Api.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Username = table.Column<string>(type: "TEXT", nullable: false),
                     Password = table.Column<string>(type: "TEXT", nullable: false),
-                    Role = table.Column<string>(type: "TEXT", nullable: false)
+                    Role = table.Column<string>(type: "TEXT", nullable: false, defaultValue: "User")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Employees_Email",
-                table: "Employees",
-                column: "Email",
-                unique: true);
         }
 
         /// <inheritdoc />
