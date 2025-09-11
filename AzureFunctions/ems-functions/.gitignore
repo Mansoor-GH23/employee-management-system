@@ -4,3 +4,5 @@
 *.user
 *.suo
 *.db
+# Ignore Azure Functions local settings
+AzureFunctions/**/local.settings.json
