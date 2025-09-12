@@ -1,0 +1,49 @@
+# === General ===
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# === Visual Studio ===
+.vs/
+*.user
+*.suo
+*.db
+*.opendb
+*.VC.db
+
+# === Build Artifacts ===
+bin/
+obj/
+out/
+publish/
+*.exe
+*.dll
+*.pdb
+
+# === Azure Functions ===
+# Local dev settings should never go into GitHub
+local.settings.json
+AzureFunctions/**/local.settings.json
+
+# === ASP.NET Core ===
+# Keep base appsettings.json (checked in, no secrets!)
+# Ignore ONLY environment-specific configs (they may contain secrets)
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
+
+# === Node / Angular ===
+node_modules/
+dist/
+tmp/
+.angular/
+coverage/
+*.tsbuildinfo
+
+# === Secrets & Config ===
+*.key
+*.secret
+*.cert
+*.pfx
