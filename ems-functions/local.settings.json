@@ -1,0 +1,13 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+
+    "KeyVaultName": "ems-new-keyvault",
+
+    // RBAC setup → just the namespace (no key, no SAS)
+    "ServiceBusConnection__fullyQualifiedNamespace": "ems-servicebus.servicebus.windows.net",
+    "ServiceBusQueueName": "employee-onboarding"
+  }
+}
