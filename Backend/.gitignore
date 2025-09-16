@@ -1,0 +1,28 @@
+## Base: Visual Studio gitignore
+## (already includes most build artifacts, bin/obj, VS cache, etc.)
+
+# --- Local environment & secrets ---
+# Azure Functions local settings (never commit secrets)
+local.settings.json
+AzureFunctions/**/local.settings.json
+
+# ASP.NET Core environment-specific configs (these usually contain secrets)
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
+appsettings.*.json
+
+# User secrets
+*.env
+*.secret
+*.key
+*.pfx
+*.cert
+
+# --- Node / Angular ---
+node_modules/
+dist/
+tmp/
+.angular/
+coverage/
+*.tsbuildinfo

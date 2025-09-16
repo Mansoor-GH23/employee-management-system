@@ -1,0 +1,717 @@
+2025-08-13 08:37:00.768 -07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-08-13 08:37:00.924 -07:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-08-13 08:37:00.945 -07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:37:00.9394465+00:00');
+SELECT changes();
+2025-08-13 08:37:01.188 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2025-08-13 08:37:01.206 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2025-08-13 08:37:01.215 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-08-13 08:37:01.245 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "__EFMigrationsLock";
+2025-08-13 08:37:29.365 -07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-08-13 08:37:29.471 -07:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-08-13 08:37:29.488 -07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:37:29.485491+00:00');
+SELECT changes();
+2025-08-13 08:37:30.502 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:37:30.5020194+00:00');
+SELECT changes();
+2025-08-13 08:37:32.527 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:37:32.5257127+00:00');
+SELECT changes();
+2025-08-13 08:37:36.560 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:37:36.5587954+00:00');
+SELECT changes();
+2025-08-13 08:37:44.598 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:37:44.5974038+00:00');
+SELECT changes();
+2025-08-13 08:38:00.630 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:38:00.627657+00:00');
+SELECT changes();
+2025-08-13 08:38:32.671 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:38:32.6679186+00:00');
+SELECT changes();
+2025-08-13 08:39:36.701 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:39:36.6988568+00:00');
+SELECT changes();
+2025-08-13 08:40:40.751 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:40:40.7492751+00:00');
+SELECT changes();
+2025-08-13 08:41:44.776 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:41:44.7729726+00:00');
+SELECT changes();
+2025-08-13 08:42:48.832 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:42:48.8318432+00:00');
+SELECT changes();
+2025-08-13 08:43:52.853 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:43:52.8510005+00:00');
+SELECT changes();
+2025-08-13 08:44:56.893 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:44:56.8921886+00:00');
+SELECT changes();
+2025-08-13 08:46:00.934 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:46:00.9329071+00:00');
+SELECT changes();
+2025-08-13 08:47:04.980 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:47:04.9784935+00:00');
+SELECT changes();
+2025-08-13 08:48:09.021 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:48:09.0193126+00:00');
+SELECT changes();
+2025-08-13 08:49:13.060 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:49:13.058102+00:00');
+SELECT changes();
+2025-08-13 08:50:17.090 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:50:17.0891826+00:00');
+SELECT changes();
+2025-08-13 08:51:21.126 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:51:21.1238442+00:00');
+SELECT changes();
+2025-08-13 08:52:25.162 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:52:25.1604996+00:00');
+SELECT changes();
+2025-08-13 08:53:29.190 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:53:29.1883877+00:00');
+SELECT changes();
+2025-08-13 08:54:33.208 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:54:33.2079252+00:00');
+SELECT changes();
+2025-08-13 08:55:37.246 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:55:37.2455507+00:00');
+SELECT changes();
+2025-08-13 08:56:41.273 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:56:41.271867+00:00');
+SELECT changes();
+2025-08-13 08:57:45.310 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:57:45.308882+00:00');
+SELECT changes();
+2025-08-13 08:58:49.350 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:58:49.3483165+00:00');
+SELECT changes();
+2025-08-13 08:59:53.376 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 15:59:53.3751162+00:00');
+SELECT changes();
+2025-08-13 09:00:57.407 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:00:57.405929+00:00');
+SELECT changes();
+2025-08-13 09:02:01.442 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:02:01.4413271+00:00');
+SELECT changes();
+2025-08-13 09:03:05.462 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:03:05.4612887+00:00');
+SELECT changes();
+2025-08-13 09:04:09.483 -07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:04:09.4807647+00:00');
+SELECT changes();
+2025-08-13 09:05:13.513 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:05:13.511805+00:00');
+SELECT changes();
+2025-08-13 09:06:17.523 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:06:17.5229966+00:00');
+SELECT changes();
+2025-08-13 09:07:21.562 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:07:21.5607918+00:00');
+SELECT changes();
+2025-08-13 09:08:25.596 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:08:25.5956009+00:00');
+SELECT changes();
+2025-08-13 09:09:29.622 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:09:29.6216117+00:00');
+SELECT changes();
+2025-08-13 09:10:33.656 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:10:33.6559826+00:00');
+SELECT changes();
+2025-08-13 09:11:37.684 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:11:37.6825782+00:00');
+SELECT changes();
+2025-08-13 09:12:41.704 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:12:41.7032993+00:00');
+SELECT changes();
+2025-08-13 09:13:45.734 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:13:45.7332844+00:00');
+SELECT changes();
+2025-08-13 09:14:49.771 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:14:49.7698859+00:00');
+SELECT changes();
+2025-08-13 09:15:53.812 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:15:53.8112935+00:00');
+SELECT changes();
+2025-08-13 09:16:57.829 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:16:57.8290031+00:00');
+SELECT changes();
+2025-08-13 09:18:01.861 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:18:01.8602238+00:00');
+SELECT changes();
+2025-08-13 09:19:05.883 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:19:05.8825124+00:00');
+SELECT changes();
+2025-08-13 09:20:09.907 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:20:09.9063358+00:00');
+SELECT changes();
+2025-08-13 09:21:13.953 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:21:13.9516657+00:00');
+SELECT changes();
+2025-08-13 09:22:17.983 -07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:22:17.9813817+00:00');
+SELECT changes();
+2025-08-13 09:23:22.025 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:23:22.0246371+00:00');
+SELECT changes();
+2025-08-13 09:24:26.057 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:24:26.0569449+00:00');
+SELECT changes();
+2025-08-13 09:25:30.079 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:25:30.0775491+00:00');
+SELECT changes();
+2025-08-13 09:26:34.114 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:26:34.1137643+00:00');
+SELECT changes();
+2025-08-13 09:27:38.156 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:27:38.1541148+00:00');
+SELECT changes();
+2025-08-13 09:28:42.192 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:28:42.1913291+00:00');
+SELECT changes();
+2025-08-13 09:29:46.227 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:29:46.2269034+00:00');
+SELECT changes();
+2025-08-13 09:30:50.258 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:30:50.257004+00:00');
+SELECT changes();
+2025-08-13 09:31:54.283 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:31:54.2828223+00:00');
+SELECT changes();
+2025-08-13 09:32:58.293 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:32:58.2922915+00:00');
+SELECT changes();
+2025-08-13 09:34:02.329 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:34:02.3278395+00:00');
+SELECT changes();
+2025-08-13 09:35:06.359 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:35:06.3577479+00:00');
+SELECT changes();
+2025-08-13 09:36:10.399 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:36:10.3971006+00:00');
+SELECT changes();
+2025-08-13 09:37:14.430 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:37:14.4291436+00:00');
+SELECT changes();
+2025-08-13 09:38:18.468 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:38:18.4676095+00:00');
+SELECT changes();
+2025-08-13 09:39:22.500 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:39:22.4991708+00:00');
+SELECT changes();
+2025-08-13 09:40:26.535 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:40:26.534476+00:00');
+SELECT changes();
+2025-08-13 09:41:30.566 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:41:30.5657738+00:00');
+SELECT changes();
+2025-08-13 09:42:34.606 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:42:34.6061154+00:00');
+SELECT changes();
+2025-08-13 09:43:38.638 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:43:38.6381331+00:00');
+SELECT changes();
+2025-08-13 09:44:42.666 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:44:42.6655774+00:00');
+SELECT changes();
+2025-08-13 09:45:46.701 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:45:46.7008367+00:00');
+SELECT changes();
+2025-08-13 09:46:50.733 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:46:50.7333183+00:00');
+SELECT changes();
+2025-08-13 09:47:45.740 -07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-08-13 09:47:45.850 -07:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-08-13 09:47:45.865 -07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:47:45.8628325+00:00');
+SELECT changes();
+2025-08-13 09:47:46.881 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:47:46.8791658+00:00');
+SELECT changes();
+2025-08-13 09:47:48.926 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:47:48.925055+00:00');
+SELECT changes();
+2025-08-13 09:47:52.960 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:47:52.9588402+00:00');
+SELECT changes();
+2025-08-13 09:48:00.994 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:48:00.9929243+00:00');
+SELECT changes();
+2025-08-13 09:48:17.027 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:48:17.025335+00:00');
+SELECT changes();
+2025-08-13 09:48:49.078 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:48:49.0765585+00:00');
+SELECT changes();
+2025-08-13 09:49:53.116 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:49:53.112879+00:00');
+SELECT changes();
+2025-08-13 09:50:57.154 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:50:57.1525378+00:00');
+SELECT changes();
+2025-08-13 09:52:01.192 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:52:01.1920154+00:00');
+SELECT changes();
+2025-08-13 09:53:05.206 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:53:05.204643+00:00');
+SELECT changes();
+2025-08-13 09:54:09.230 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:54:09.2282324+00:00');
+SELECT changes();
+2025-08-13 09:55:13.280 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:55:13.2789511+00:00');
+SELECT changes();
+2025-08-13 09:56:17.317 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 16:56:17.3163237+00:00');
+SELECT changes();
+2025-08-13 11:34:24.774 -07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-08-13 11:34:25.016 -07:00 [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-08-13 11:34:25.062 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:34:25.0586827+00:00');
+SELECT changes();
+2025-08-13 11:34:26.080 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:34:26.0785771+00:00');
+SELECT changes();
+2025-08-13 11:34:28.094 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:34:28.0930985+00:00');
+SELECT changes();
+2025-08-13 11:34:32.113 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:34:32.112227+00:00');
+SELECT changes();
+2025-08-13 11:34:40.136 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:34:40.1348613+00:00');
+SELECT changes();
+2025-08-13 11:34:56.166 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:34:56.1659244+00:00');
+SELECT changes();
+2025-08-13 11:35:28.180 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:35:28.1800457+00:00');
+SELECT changes();
+2025-08-13 11:36:32.205 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:36:32.2032643+00:00');
+SELECT changes();
+2025-08-13 11:45:18.640 -07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-08-13 11:45:18.799 -07:00 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-08-13 11:45:18.817 -07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:45:18.8128837+00:00');
+SELECT changes();
+2025-08-13 11:45:19.837 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:45:19.8341582+00:00');
+SELECT changes();
+2025-08-13 11:45:21.861 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:45:21.8605043+00:00');
+SELECT changes();
+2025-08-13 11:45:25.879 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:45:25.8779533+00:00');
+SELECT changes();
+2025-08-13 11:52:09.074 -07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-08-13 11:52:09.222 -07:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-08-13 11:52:09.239 -07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:52:09.2359345+00:00');
+SELECT changes();
+2025-08-13 11:52:10.252 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:52:10.2513812+00:00');
+SELECT changes();
+2025-08-13 11:52:12.265 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:52:12.2652117+00:00');
+SELECT changes();
+2025-08-13 11:52:16.281 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:52:16.2796329+00:00');
+SELECT changes();
+2025-08-13 11:52:24.313 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:52:24.3117469+00:00');
+SELECT changes();
+2025-08-13 11:52:40.342 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:52:40.341698+00:00');
+SELECT changes();
+2025-08-13 11:53:12.363 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:53:12.3604227+00:00');
+SELECT changes();
+2025-08-13 11:54:16.402 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:54:16.4003764+00:00');
+SELECT changes();
+2025-08-13 11:57:36.589 -07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-08-13 11:57:36.693 -07:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-08-13 11:57:36.715 -07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:57:36.7079051+00:00');
+SELECT changes();
+2025-08-13 11:57:36.812 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2025-08-13 11:57:36.826 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2025-08-13 11:57:36.837 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-08-13 11:57:36.858 -07:00 [INF] Applying migration '20250813185137_InitialCreate'.
+2025-08-13 11:57:36.893 -07:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Employees" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Employees" PRIMARY KEY,
+    "EmployeeCode" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "Email" TEXT NOT NULL,
+    "Department" TEXT NOT NULL,
+    "DateOfJoining" TEXT NOT NULL,
+    "Salary" TEXT NOT NULL
+);
+2025-08-13 11:58:15.147 -07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-08-13 11:58:15.250 -07:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-08-13 11:58:15.271 -07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 18:58:15.2628546+00:00');
+SELECT changes();
+2025-08-13 11:58:15.362 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2025-08-13 11:58:15.376 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2025-08-13 11:58:15.385 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-08-13 11:58:15.406 -07:00 [INF] Applying migration '20250813185137_InitialCreate'.
+2025-08-13 11:58:15.437 -07:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Employees" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Employees" PRIMARY KEY,
+    "EmployeeCode" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "Email" TEXT NOT NULL,
+    "Department" TEXT NOT NULL,
+    "DateOfJoining" TEXT NOT NULL,
+    "Salary" TEXT NOT NULL
+);
+2025-08-13 12:00:48.682 -07:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2025-08-13 12:00:48.787 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-08-13 12:02:52.851 -07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-08-13 12:02:52.955 -07:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-08-13 12:02:52.975 -07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 19:02:52.9687067+00:00');
+SELECT changes();
+2025-08-13 12:02:53.069 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2025-08-13 12:02:53.083 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2025-08-13 12:02:53.096 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-08-13 12:02:53.127 -07:00 [INF] Applying migration '20250813190235_InitialCreate'.
+2025-08-13 12:02:53.159 -07:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Employees" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Employees" PRIMARY KEY,
+    "EmployeeCode" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "Email" TEXT NOT NULL,
+    "Department" TEXT NOT NULL,
+    "DateOfJoining" TEXT NOT NULL,
+    "Salary" TEXT NOT NULL
+);
+2025-08-13 12:05:54.325 -07:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2025-08-13 12:05:54.402 -07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-08-13 12:05:54.420 -07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-08-13 12:05:54.428 -07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsLock" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK___EFMigrationsLock" PRIMARY KEY,
+    "Timestamp" TEXT NOT NULL
+);
+2025-08-13 12:05:54.435 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-13 19:05:54.4344051+00:00');
+SELECT changes();
+2025-08-13 12:05:54.522 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2025-08-13 12:05:54.539 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2025-08-13 12:05:54.551 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-08-13 12:05:54.570 -07:00 [INF] Applying migration '20250813190235_InitialCreate'.
+2025-08-13 12:05:54.600 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Employees" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Employees" PRIMARY KEY,
+    "EmployeeCode" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "Email" TEXT NOT NULL,
+    "Department" TEXT NOT NULL,
+    "DateOfJoining" TEXT NOT NULL,
+    "Salary" TEXT NOT NULL
+);
+2025-08-13 12:05:54.608 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "Username" TEXT NOT NULL,
+    "Password" TEXT NOT NULL,
+    "Role" TEXT NOT NULL
+);
+2025-08-13 12:05:54.613 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Employees" ("Id", "DateOfJoining", "Department", "Email", "EmployeeCode", "FullName", "Salary")
+VALUES ('emp1', '2020-01-15 00:00:00', 'IT', 'john.doe@example.com', 'EMP001', 'John Doe', '60000.0');
+SELECT changes();
+
+INSERT INTO "Employees" ("Id", "DateOfJoining", "Department", "Email", "EmployeeCode", "FullName", "Salary")
+VALUES ('emp2', '2019-03-20 00:00:00', 'HR', 'jane.smith@example.com', 'EMP002', 'Jane Smith', '58000.0');
+SELECT changes();
+
+INSERT INTO "Employees" ("Id", "DateOfJoining", "Department", "Email", "EmployeeCode", "FullName", "Salary")
+VALUES ('emp3', '2021-06-10 00:00:00', 'Finance', 'alice.johnson@example.com', 'EMP003', 'Alice Johnson', '62000.0');
+SELECT changes();
+2025-08-13 12:05:54.618 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "Password", "Role", "Username")
+VALUES ('admin', 'Admin123', 'Admin', 'Admin');
+SELECT changes();
+2025-08-13 12:05:54.623 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20250813190235_InitialCreate', '9.0.6');
+2025-08-13 12:05:54.631 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "__EFMigrationsLock";
+2025-08-13 22:47:43.573 -07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-08-13 22:47:43.710 -07:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-08-13 22:47:43.731 -07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-14 05:47:43.7248949+00:00');
+SELECT changes();
+2025-08-13 22:47:43.848 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2025-08-13 22:47:43.862 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2025-08-13 22:47:43.869 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-08-13 22:47:43.888 -07:00 [INF] No migrations were applied. The database is already up to date.
+2025-08-13 22:47:43.893 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "__EFMigrationsLock";
+2025-08-13 22:47:44.429 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS "u")
+2025-08-13 22:47:44.458 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Employees" AS "e")
+2025-08-13 22:47:45.459 -07:00 [INF] User profile is available. Using 'C:\Users\LAPTOP WORLD\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-08-13 22:47:45.851 -07:00 [WRN] The WebRootPath was not found: D:\VS Cummunity Projects\employee-management-monorepo\employee-management-system\Backend\EmployeeManagementSystem.Api\wwwroot. Static files may be unavailable.
+2025-08-13 22:47:46.270 -07:00 [INF] Now listening on: https://localhost:7164
+2025-08-13 22:47:46.273 -07:00 [INF] Now listening on: http://localhost:5151
+2025-08-13 22:47:46.836 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-13 22:47:46.840 -07:00 [INF] Hosting environment: Development
+2025-08-13 22:47:46.842 -07:00 [INF] Content root path: D:\VS Cummunity Projects\employee-management-monorepo\employee-management-system\Backend\EmployeeManagementSystem.Api
+2025-08-13 22:47:48.231 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger - null null
+2025-08-13 22:47:48.584 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger - 301 0 null 372.3012ms
+2025-08-13 22:47:48.833 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/_vs/browserLink - null null
+2025-08-13 22:47:48.833 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-13 22:47:48.920 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/_framework/aspnetcore-browser-refresh.js - 200 16541 application/javascript; charset=utf-8 86.7802ms
+2025-08-13 22:47:49.261 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/_vs/browserLink - 200 null text/javascript; charset=UTF-8 427.7196ms
+2025-08-13 22:47:49.523 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger/favicon-16x16.png - null null
+2025-08-13 22:47:49.569 -07:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2025-08-13 22:47:49.572 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger/favicon-16x16.png - 499 665 image/png 48.9021ms
+2025-08-13 22:47:49.677 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger/v1/swagger.json - null null
+2025-08-13 22:47:49.730 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 53.5781ms
+2025-08-13 22:48:04.721 -07:00 [INF] Request starting HTTP/2 POST https://localhost:7164/api/Auth/login - application/json 51
+2025-08-13 22:48:04.732 -07:00 [INF] CORS policy execution failed.
+2025-08-13 22:48:04.737 -07:00 [INF] Request origin https://localhost:7164 does not have permission to access the resource.
+2025-08-13 22:48:07.605 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api)'
+2025-08-13 22:48:07.660 -07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(EmployeeManagementSystem.Api.DTOs.LoginDto) on controller EmployeeManagementSystem.Api.Controllers.AuthController (EmployeeManagementSystem.Api).
+2025-08-13 22:48:08.133 -07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__loginDto_Username_0='?' (Size = 5), @__loginDto_Password_1='?' (Size = 8)], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."Password", "u"."Role", "u"."Username"
+FROM "Users" AS "u"
+WHERE "u"."Username" = @__loginDto_Username_0 AND "u"."Password" = @__loginDto_Password_1
+LIMIT 1
+2025-08-13 22:48:08.386 -07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-13 22:48:08.407 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api) in 735.602ms
+2025-08-13 22:48:08.410 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api)'
+2025-08-13 22:48:08.423 -07:00 [INF] Request finished HTTP/2 POST https://localhost:7164/api/Auth/login - 200 null application/json; charset=utf-8 3702.6994ms
+2025-08-13 22:48:28.820 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-13 22:48:28.940 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:48:28.949 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-13 22:48:29.223 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-13 22:48:29.310 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-13 22:48:29.336 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 378.5274ms
+2025-08-13 22:48:29.352 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:48:29.355 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 539.8749ms
+2025-08-13 22:49:18.081 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Departments - null null
+2025-08-13 22:49:18.096 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.DepartmentsController.GetDepartments (EmployeeManagementSystem.Api)'
+2025-08-13 22:49:18.105 -07:00 [INF] Route matched with {action = "GetDepartments", controller = "Departments"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDepartments() on controller EmployeeManagementSystem.Api.Controllers.DepartmentsController (EmployeeManagementSystem.Api).
+2025-08-13 22:49:18.111 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.String[]'.
+2025-08-13 22:49:18.114 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.DepartmentsController.GetDepartments (EmployeeManagementSystem.Api) in 4.0625ms
+2025-08-13 22:49:18.127 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.DepartmentsController.GetDepartments (EmployeeManagementSystem.Api)'
+2025-08-13 22:49:18.130 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Departments - 200 null application/json; charset=utf-8 48.7626ms
+2025-08-13 22:49:33.484 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-13 22:49:33.519 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:49:33.522 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-13 22:49:33.533 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-13 22:49:33.539 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-13 22:49:33.542 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 15.6117ms
+2025-08-13 22:49:33.551 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:49:33.555 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 70.8191ms
+2025-08-13 22:52:58.106 -07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7164/api/Employee - null null
+2025-08-13 22:52:58.115 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:52:58.120 -07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7164/api/Employee - 204 null null 13.183ms
+2025-08-13 22:52:58.123 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-13 22:52:58.133 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:52:58.137 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:52:58.140 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-13 22:52:58.152 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-13 22:52:58.157 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-13 22:52:58.164 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 17.0643ms
+2025-08-13 22:52:58.168 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:52:58.171 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 48.0916ms
+2025-08-13 22:53:06.720 -07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7164/api/Employee - null null
+2025-08-13 22:53:06.727 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:53:06.729 -07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7164/api/Employee - 204 null null 8.8305ms
+2025-08-13 22:53:06.740 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-13 22:53:06.756 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:53:06.759 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:53:06.763 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-13 22:53:06.777 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-13 22:53:06.803 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-13 22:53:06.809 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 33.4742ms
+2025-08-13 22:53:06.815 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:53:06.818 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 79.4531ms
+2025-08-13 22:53:49.934 -07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7164/api/Employee - null null
+2025-08-13 22:53:49.944 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:53:49.952 -07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7164/api/Employee - 204 null null 18.7898ms
+2025-08-13 22:53:49.972 -07:00 [INF] Request starting HTTP/2 POST https://localhost:7164/api/Employee - application/json 148
+2025-08-13 22:53:49.985 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:53:49.987 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.Create (EmployeeManagementSystem.Api)'
+2025-08-13 22:53:49.997 -07:00 [INF] Route matched with {action = "Create", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(EmployeeManagementSystem.Api.DTOs.EmployeeDto) on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-13 22:53:50.124 -07:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 36), @p1='?' (DbType = DateTime), @p2='?' (Size = 4), @p3='?' (Size = 16), @p4='?' (Size = 6), @p5='?' (Size = 11), @p6='?' (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Employees" ("Id", "DateOfJoining", "Department", "Email", "EmployeeCode", "FullName", "Salary")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2025-08-13 22:53:50.149 -07:00 [INF] Executing CreatedAtActionResult, writing value of type 'EmployeeManagementSystem.Api.DTOs.EmployeeDto'.
+2025-08-13 22:53:50.192 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.Create (EmployeeManagementSystem.Api) in 190.7333ms
+2025-08-13 22:53:50.197 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.Create (EmployeeManagementSystem.Api)'
+2025-08-13 22:53:50.200 -07:00 [INF] Request finished HTTP/2 POST https://localhost:7164/api/Employee - 201 null application/json; charset=utf-8 228.1965ms
+2025-08-13 22:53:51.789 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-13 22:53:51.795 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:53:51.801 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:53:51.805 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-13 22:53:51.814 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-13 22:53:51.823 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-13 22:53:51.827 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 16.6815ms
+2025-08-13 22:53:51.836 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:53:51.840 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 50.1338ms
+2025-08-13 22:54:00.192 -07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7164/api/Employee/EMP003 - null null
+2025-08-13 22:54:00.198 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:54:00.202 -07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7164/api/Employee/EMP003 - 204 null null 10.1049ms
+2025-08-13 22:54:00.206 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee/EMP003 - null null
+2025-08-13 22:54:00.221 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:54:00.223 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetById (EmployeeManagementSystem.Api)'
+2025-08-13 22:54:00.235 -07:00 [INF] Route matched with {action = "GetById", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-13 22:54:00.254 -07:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-08-13 22:54:00.325 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetById (EmployeeManagementSystem.Api) in 83.9777ms
+2025-08-13 22:54:00.328 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetById (EmployeeManagementSystem.Api)'
+2025-08-13 22:54:00.332 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee/EMP003 - 400 null application/problem+json; charset=utf-8 126.3856ms
+2025-08-13 22:54:09.822 -07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7164/api/Employee - null null
+2025-08-13 22:54:09.829 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:54:09.831 -07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7164/api/Employee - 204 null null 8.8665ms
+2025-08-13 22:54:09.835 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-13 22:54:09.850 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:54:09.852 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:54:09.856 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-13 22:54:09.867 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-13 22:54:09.874 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-13 22:54:09.877 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 11.4702ms
+2025-08-13 22:54:09.881 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:54:09.888 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 52.7943ms
+2025-08-13 22:54:14.725 -07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7164/api/Employee/EMP003 - null null
+2025-08-13 22:54:14.731 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:54:14.738 -07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7164/api/Employee/EMP003 - 204 null null 12.5648ms
+2025-08-13 22:54:14.741 -07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7164/api/Employee/EMP003 - null null
+2025-08-13 22:54:14.754 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:54:14.757 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.Delete (EmployeeManagementSystem.Api)'
+2025-08-13 22:54:14.767 -07:00 [INF] Route matched with {action = "Delete", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(Int32) on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-13 22:54:14.774 -07:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-08-13 22:54:14.778 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.Delete (EmployeeManagementSystem.Api) in 5.4658ms
+2025-08-13 22:54:14.786 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.Delete (EmployeeManagementSystem.Api)'
+2025-08-13 22:54:14.791 -07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7164/api/Employee/EMP003 - 400 null application/problem+json; charset=utf-8 51.0961ms
+2025-08-13 22:55:15.610 -07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7164/api/Employee - null null
+2025-08-13 22:55:15.617 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:55:15.620 -07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7164/api/Employee - 204 null null 10.1614ms
+2025-08-13 22:55:15.636 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-13 22:55:15.712 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:55:15.715 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:55:15.725 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-13 22:55:15.739 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-13 22:55:15.749 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-13 22:55:15.758 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 20.4104ms
+2025-08-13 22:55:15.772 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:55:15.777 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 140.2176ms
+2025-08-13 22:56:08.159 -07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7164/api/Employee - null null
+2025-08-13 22:56:08.170 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:56:08.173 -07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7164/api/Employee - 204 null null 13.5066ms
+2025-08-13 22:56:08.184 -07:00 [INF] Request starting HTTP/2 POST https://localhost:7164/api/Employee - application/json 147
+2025-08-13 22:56:08.208 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:56:08.211 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.Create (EmployeeManagementSystem.Api)'
+2025-08-13 22:56:08.214 -07:00 [INF] Route matched with {action = "Create", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(EmployeeManagementSystem.Api.DTOs.EmployeeDto) on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-13 22:56:08.230 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 36), @p1='?' (DbType = DateTime), @p2='?' (Size = 5), @p3='?' (Size = 13), @p4='?' (Size = 6), @p5='?' (Size = 13), @p6='?' (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Employees" ("Id", "DateOfJoining", "Department", "Email", "EmployeeCode", "FullName", "Salary")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2025-08-13 22:56:08.242 -07:00 [INF] Executing CreatedAtActionResult, writing value of type 'EmployeeManagementSystem.Api.DTOs.EmployeeDto'.
+2025-08-13 22:56:08.246 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.Create (EmployeeManagementSystem.Api) in 23.3059ms
+2025-08-13 22:56:08.250 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.Create (EmployeeManagementSystem.Api)'
+2025-08-13 22:56:08.256 -07:00 [INF] Request finished HTTP/2 POST https://localhost:7164/api/Employee - 201 null application/json; charset=utf-8 72.9233ms
+2025-08-13 22:56:09.801 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-13 22:56:09.823 -07:00 [INF] CORS policy execution successful.
+2025-08-13 22:56:09.831 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:56:09.850 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-13 22:56:09.865 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-13 22:56:09.873 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-13 22:56:09.880 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 16.2009ms
+2025-08-13 22:56:09.886 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-13 22:56:09.893 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 92.592ms

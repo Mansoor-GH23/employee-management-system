@@ -1,0 +1,55 @@
+{
+  "name": "employee-management-client",
+  "version": "0.0.0",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "clean": "rimraf dist out-tsc node_modules package-lock.json",
+    "deploy": "ng deploy --base-href=/employee-management-system/",
+    "serve:ssr:employee-management-client": "node dist/employee-management-client/server/server.mjs"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^20.0.5",
+    "@angular/compiler": "^20.0.5",
+    "@angular/core": "^20.0.5",
+    "@angular/forms": "^20.0.5",
+    "@angular/platform-browser": "^20.0.5",
+    "@angular/platform-server": "^20.0.5",
+    "@angular/router": "^20.0.5",
+    "@angular/ssr": "^20.0.5",
+    "express": "^5.1.0",
+    "jquery": "^3.7.1",
+    "jwt-decode": "^4.0.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^20.0.5",
+    "@angular/build": "^20.0.5",
+    "@angular/cli": "^20.0.5",
+    "@angular/compiler-cli": "^20.0.5",
+    "@angular/platform-browser-dynamic": "^20.0.5",
+    "@types/express": "^5.0.1",
+    "@types/jasmine": "^5.1.8",
+    "@types/jquery": "^3.5.32",
+    "@types/jwt-decode": "^2.2.1",
+    "@types/node": "^20.19.4",
+    "angular-cli-ghpages": "^2.0.3",
+    "jasmine-core": "~5.1.0",
+    "karma": "^6.4.4",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-coverage": "^2.2.1",
+    "karma-jasmine": "^5.1.0",
+    "karma-jasmine-html-reporter": "^2.1.0",
+    "rimraf": "^6.0.1",
+    "typescript": "~5.8.2",
+    "zone.js": "^0.15.1"
+  }
+}

@@ -1,0 +1,48 @@
+name: Frontend CD — Deploy Angular to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'frontend/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.12.0'
+          cache: 'npm'
+          cache-dependency-path: 'frontend/package-lock.json'
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Build (production)
+        working-directory: frontend
+        # Force prod env + correct base-href for GitHub Pages + explicit output path
+        run: npm run build -- --configuration production --base-href=/employee-management-system/ --output-path=dist/employee-management-client
+
+      - name: Verify build output
+        run: |
+          echo "Listing built files:"
+          ls -la frontend/dist
+          ls -la frontend/dist/employee-management-client || true
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: frontend/dist/employee-management-client
+          clean: true

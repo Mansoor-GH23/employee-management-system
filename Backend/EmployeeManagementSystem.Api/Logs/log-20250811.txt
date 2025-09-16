@@ -1,0 +1,251 @@
+2025-08-11 13:52:42.286 -07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-08-11 13:52:42.489 -07:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-08-11 13:52:42.509 -07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-11 20:52:42.504038+00:00');
+SELECT changes();
+2025-08-11 13:52:42.719 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2025-08-11 13:52:42.764 -07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2025-08-11 13:52:42.795 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-08-11 13:52:42.823 -07:00 [INF] No migrations were applied. The database is already up to date.
+2025-08-11 13:52:42.827 -07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "__EFMigrationsLock";
+2025-08-11 13:52:43.566 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS "u")
+2025-08-11 13:52:43.579 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Employees" AS "e")
+2025-08-11 13:52:44.304 -07:00 [INF] User profile is available. Using 'C:\Users\LAPTOP WORLD\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-08-11 13:52:45.076 -07:00 [WRN] The WebRootPath was not found: D:\VS Cummunity Projects\employee-management-monorepo\employee-management-system\Backend\EmployeeManagementSystem.Api\wwwroot. Static files may be unavailable.
+2025-08-11 13:52:45.699 -07:00 [INF] Now listening on: https://localhost:7164
+2025-08-11 13:52:45.701 -07:00 [INF] Now listening on: http://localhost:5151
+2025-08-11 13:52:46.197 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-11 13:52:46.228 -07:00 [INF] Hosting environment: Development
+2025-08-11 13:52:46.258 -07:00 [INF] Content root path: D:\VS Cummunity Projects\employee-management-monorepo\employee-management-system\Backend\EmployeeManagementSystem.Api
+2025-08-11 13:52:52.515 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger - null null
+2025-08-11 13:52:53.103 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger - 301 0 null 652.0666ms
+2025-08-11 13:52:53.305 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-11 13:52:53.306 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/_vs/browserLink - null null
+2025-08-11 13:52:53.633 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/_framework/aspnetcore-browser-refresh.js - 200 16541 application/javascript; charset=utf-8 327.3116ms
+2025-08-11 13:52:54.095 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger/favicon-16x16.png - null null
+2025-08-11 13:52:54.136 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/_vs/browserLink - 200 null text/javascript; charset=UTF-8 830.3122ms
+2025-08-11 13:52:54.206 -07:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2025-08-11 13:52:54.209 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger/favicon-16x16.png - 499 665 image/png 114.1078ms
+2025-08-11 13:52:54.658 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger/v1/swagger.json - null null
+2025-08-11 13:52:54.742 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 83.9497ms
+2025-08-11 13:53:08.859 -07:00 [INF] Request starting HTTP/2 POST https://localhost:7164/api/Auth/login - application/json 51
+2025-08-11 13:53:08.905 -07:00 [INF] CORS policy execution failed.
+2025-08-11 13:53:08.912 -07:00 [INF] Request origin https://localhost:7164 does not have permission to access the resource.
+2025-08-11 13:53:13.090 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api)'
+2025-08-11 13:53:13.158 -07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(EmployeeManagementSystem.Api.DTOs.LoginDto) on controller EmployeeManagementSystem.Api.Controllers.AuthController (EmployeeManagementSystem.Api).
+2025-08-11 13:53:13.708 -07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__loginDto_Username_0='?' (Size = 5), @__loginDto_Password_1='?' (Size = 8)], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."Password", "u"."Role", "u"."Username"
+FROM "Users" AS "u"
+WHERE "u"."Username" = @__loginDto_Username_0 AND "u"."Password" = @__loginDto_Password_1
+LIMIT 1
+2025-08-11 13:53:14.005 -07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-11 13:53:14.032 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api) in 858.1647ms
+2025-08-11 13:53:14.035 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api)'
+2025-08-11 13:53:14.064 -07:00 [INF] Request finished HTTP/2 POST https://localhost:7164/api/Auth/login - 200 null application/json; charset=utf-8 5204.7502ms
+2025-08-11 13:53:37.988 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-11 13:53:38.143 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-11 13:53:38.160 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-11 13:53:38.596 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-11 13:53:38.708 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-11 13:53:38.739 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 573.1194ms
+2025-08-11 13:53:38.756 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-11 13:53:38.759 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 772.174ms
+2025-08-11 13:57:24.300 -07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7164/api/Auth/login - null null
+2025-08-11 13:57:24.322 -07:00 [INF] CORS policy execution successful.
+2025-08-11 13:57:24.333 -07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7164/api/Auth/login - 204 null null 32.1292ms
+2025-08-11 13:57:24.352 -07:00 [INF] Request starting HTTP/2 POST https://localhost:7164/api/Auth/login - application/json 42
+2025-08-11 13:57:24.371 -07:00 [INF] CORS policy execution successful.
+2025-08-11 13:57:24.385 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api)'
+2025-08-11 13:57:24.387 -07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(EmployeeManagementSystem.Api.DTOs.LoginDto) on controller EmployeeManagementSystem.Api.Controllers.AuthController (EmployeeManagementSystem.Api).
+2025-08-11 13:57:24.408 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[@__loginDto_Username_0='?' (Size = 5), @__loginDto_Password_1='?' (Size = 8)], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."Password", "u"."Role", "u"."Username"
+FROM "Users" AS "u"
+WHERE "u"."Username" = @__loginDto_Username_0 AND "u"."Password" = @__loginDto_Password_1
+LIMIT 1
+2025-08-11 13:57:24.417 -07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-11 13:57:24.420 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api) in 28.9346ms
+2025-08-11 13:57:24.423 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api)'
+2025-08-11 13:57:24.425 -07:00 [INF] Request finished HTTP/2 POST https://localhost:7164/api/Auth/login - 200 null application/json; charset=utf-8 74.2085ms
+2025-08-11 13:57:35.920 -07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7164/api/Employee - null null
+2025-08-11 13:57:35.928 -07:00 [INF] CORS policy execution successful.
+2025-08-11 13:57:35.930 -07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7164/api/Employee - 204 null null 10.095ms
+2025-08-11 13:57:35.939 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-11 13:57:35.959 -07:00 [INF] CORS policy execution successful.
+2025-08-11 13:57:35.974 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-11 13:57:35.980 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-11 13:57:35.992 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-11 13:57:35.998 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-11 13:57:36.000 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 11.4822ms
+2025-08-11 13:57:36.004 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-11 13:57:36.006 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 67.5606ms
+2025-08-11 20:49:40.418 -07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-08-11 20:49:40.798 -07:00 [INF] Executed DbCommand (91ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-08-11 20:49:40.892 -07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-12 03:49:40.8869154+00:00');
+SELECT changes();
+2025-08-11 20:49:41.240 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2025-08-11 20:49:41.277 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2025-08-11 20:49:41.292 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-08-11 20:49:41.331 -07:00 [INF] No migrations were applied. The database is already up to date.
+2025-08-11 20:49:41.341 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "__EFMigrationsLock";
+2025-08-11 20:49:42.249 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS "u")
+2025-08-11 20:49:42.401 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Employees" AS "e")
+2025-08-11 20:49:43.504 -07:00 [INF] User profile is available. Using 'C:\Users\LAPTOP WORLD\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-08-11 20:49:44.561 -07:00 [WRN] The WebRootPath was not found: D:\VS Cummunity Projects\employee-management-monorepo\employee-management-system\Backend\EmployeeManagementSystem.Api\wwwroot. Static files may be unavailable.
+2025-08-11 20:49:45.465 -07:00 [INF] Now listening on: https://localhost:7164
+2025-08-11 20:49:45.468 -07:00 [INF] Now listening on: http://localhost:5151
+2025-08-11 20:49:46.469 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-11 20:49:46.477 -07:00 [INF] Hosting environment: Development
+2025-08-11 20:49:46.479 -07:00 [INF] Content root path: D:\VS Cummunity Projects\employee-management-monorepo\employee-management-system\Backend\EmployeeManagementSystem.Api
+2025-08-11 20:49:49.448 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger - null null
+2025-08-11 20:49:50.489 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger/index.html - null null
+2025-08-11 20:49:50.299 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger - 301 0 null 838.8988ms
+2025-08-11 20:49:50.707 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger/swagger-ui.css - null null
+2025-08-11 20:49:50.695 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-11 20:49:51.369 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger/index.css - null null
+2025-08-11 20:49:51.501 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger/swagger-ui-standalone-preset.js - null null
+2025-08-11 20:49:51.525 -07:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-08-11 20:49:51.525 -07:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2025-08-11 20:49:51.548 -07:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-08-11 20:49:51.556 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger/swagger-ui.css - 499 154949 text/css 848.6541ms
+2025-08-11 20:49:51.562 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger/index.css - 499 202 text/css 193.3961ms
+2025-08-11 20:49:51.565 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger/swagger-ui-standalone-preset.js - 499 229223 text/javascript 64.7122ms
+2025-08-11 20:49:51.577 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger/index.js - null null
+2025-08-11 20:49:51.584 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/_vs/browserLink - null null
+2025-08-11 20:49:51.613 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/_framework/aspnetcore-browser-refresh.js - 200 16541 application/javascript; charset=utf-8 918.1072ms
+2025-08-11 20:49:51.960 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger/favicon-16x16.png - null null
+2025-08-11 20:49:52.071 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger/index.js - 200 null application/javascript;charset=utf-8 493.1062ms
+2025-08-11 20:49:52.194 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger/index.html - 200 null text/html;charset=utf-8 1704.5968ms
+2025-08-11 20:49:52.491 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/_vs/browserLink - 200 null text/javascript; charset=UTF-8 907.9565ms
+2025-08-11 20:49:52.546 -07:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2025-08-11 20:49:52.601 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger/favicon-16x16.png - 499 665 image/png 641.2536ms
+2025-08-11 20:49:53.242 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger/v1/swagger.json - null null
+2025-08-11 20:49:53.293 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 51.4002ms
+2025-08-11 20:50:27.611 -07:00 [INF] Request starting HTTP/2 POST https://localhost:7164/api/Auth/login - application/json 51
+2025-08-11 20:50:27.626 -07:00 [INF] CORS policy execution failed.
+2025-08-11 20:50:27.629 -07:00 [INF] Request origin https://localhost:7164 does not have permission to access the resource.
+2025-08-11 20:50:27.849 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api)'
+2025-08-11 20:50:27.943 -07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(EmployeeManagementSystem.Api.DTOs.LoginDto) on controller EmployeeManagementSystem.Api.Controllers.AuthController (EmployeeManagementSystem.Api).
+2025-08-11 20:50:28.625 -07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__loginDto_Username_0='?' (Size = 5), @__loginDto_Password_1='?' (Size = 8)], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."Password", "u"."Role", "u"."Username"
+FROM "Users" AS "u"
+WHERE "u"."Username" = @__loginDto_Username_0 AND "u"."Password" = @__loginDto_Password_1
+LIMIT 1
+2025-08-11 20:50:28.859 -07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-11 20:50:28.899 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api) in 936.9759ms
+2025-08-11 20:50:28.907 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api)'
+2025-08-11 20:50:28.931 -07:00 [INF] Request finished HTTP/2 POST https://localhost:7164/api/Auth/login - 200 null application/json; charset=utf-8 1324.1695ms
+2025-08-11 20:50:48.649 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-11 20:50:48.794 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-11 20:50:48.810 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-11 20:50:49.366 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-11 20:50:49.596 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-11 20:50:49.902 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 1085.0286ms
+2025-08-11 20:50:49.919 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-11 20:50:49.923 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 1273.8541ms
+2025-08-11 20:50:55.626 -07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7164/api/Auth/login - null null
+2025-08-11 20:50:55.639 -07:00 [INF] CORS policy execution successful.
+2025-08-11 20:50:55.645 -07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7164/api/Auth/login - 204 null null 24.1482ms
+2025-08-11 20:50:55.648 -07:00 [INF] Request starting HTTP/2 POST https://localhost:7164/api/Auth/login - application/json 42
+2025-08-11 20:50:55.655 -07:00 [INF] CORS policy execution successful.
+2025-08-11 20:50:55.660 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api)'
+2025-08-11 20:50:55.663 -07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(EmployeeManagementSystem.Api.DTOs.LoginDto) on controller EmployeeManagementSystem.Api.Controllers.AuthController (EmployeeManagementSystem.Api).
+2025-08-11 20:50:55.679 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[@__loginDto_Username_0='?' (Size = 5), @__loginDto_Password_1='?' (Size = 8)], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."Password", "u"."Role", "u"."Username"
+FROM "Users" AS "u"
+WHERE "u"."Username" = @__loginDto_Username_0 AND "u"."Password" = @__loginDto_Password_1
+LIMIT 1
+2025-08-11 20:50:55.685 -07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-11 20:50:55.687 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api) in 20.7782ms
+2025-08-11 20:50:55.690 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api)'
+2025-08-11 20:50:55.693 -07:00 [INF] Request finished HTTP/2 POST https://localhost:7164/api/Auth/login - 200 null application/json; charset=utf-8 45.1976ms
+2025-08-11 20:51:02.995 -07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7164/api/Employee - null null
+2025-08-11 20:51:03.000 -07:00 [INF] CORS policy execution successful.
+2025-08-11 20:51:03.004 -07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7164/api/Employee - 204 null null 9.3467ms
+2025-08-11 20:51:03.007 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-11 20:51:03.021 -07:00 [INF] CORS policy execution successful.
+2025-08-11 20:51:03.028 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-11 20:51:03.031 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-11 20:51:03.042 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-11 20:51:03.055 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-11 20:51:03.060 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 21.155ms
+2025-08-11 20:51:03.065 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-11 20:51:03.069 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 62.5502ms
+2025-08-11 20:57:06.577 -07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7164/api/Employee - null null
+2025-08-11 20:57:06.597 -07:00 [INF] CORS policy execution successful.
+2025-08-11 20:57:06.604 -07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7164/api/Employee - 204 null null 27.3869ms
+2025-08-11 20:57:06.618 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-11 20:57:06.642 -07:00 [INF] CORS policy execution successful.
+2025-08-11 20:57:06.647 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-11 20:57:06.650 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-11 20:57:06.668 -07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-11 20:57:06.677 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-11 20:57:06.680 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 19.6017ms
+2025-08-11 20:57:06.683 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-11 20:57:06.686 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 74.9632ms
+2025-08-11 21:05:05.478 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-11 21:05:05.485 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-11 21:05:05.488 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-11 21:05:05.499 -07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-11 21:05:05.505 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-11 21:05:05.508 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 13.8855ms
+2025-08-11 21:05:05.539 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-11 21:05:05.547 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 68.4033ms
+2025-08-11 21:05:20.045 -07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7164/api/Employee - null null
+2025-08-11 21:05:20.091 -07:00 [INF] CORS policy execution successful.
+2025-08-11 21:05:20.095 -07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7164/api/Employee - 204 null null 49.706ms
+2025-08-11 21:05:20.100 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-11 21:05:20.110 -07:00 [INF] CORS policy execution successful.
+2025-08-11 21:05:20.115 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-11 21:05:20.118 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-11 21:05:20.122 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-11 21:05:20.126 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-11 21:05:20.130 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 9.1076ms
+2025-08-11 21:05:20.135 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-11 21:05:20.137 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 37.2903ms

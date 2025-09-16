@@ -1,0 +1,39 @@
+# .NET build artifacts
+**/bin/
+**/obj/
+**/out/
+
+# User-specific files
+*.swp
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio files
+.vs/
+.vscode/
+*.dbmdl
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment & secrets
+*.env
+secrets.json
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Git
+.git
+.gitignore
+
+# Node (if frontend accidentally gets copied here)
+node_modules/
+dist/

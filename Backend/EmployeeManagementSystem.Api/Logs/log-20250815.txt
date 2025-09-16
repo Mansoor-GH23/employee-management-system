@@ -1,0 +1,89 @@
+2025-08-15 14:25:42.649 -07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-08-15 14:25:42.780 -07:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-08-15 14:25:42.797 -07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-15 21:25:42.7928625+00:00');
+SELECT changes();
+2025-08-15 14:25:42.906 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2025-08-15 14:25:42.923 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2025-08-15 14:25:42.932 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-08-15 14:25:42.955 -07:00 [INF] No migrations were applied. The database is already up to date.
+2025-08-15 14:25:42.961 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "__EFMigrationsLock";
+2025-08-15 19:50:17.777 -07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-08-15 19:50:17.920 -07:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+2025-08-15 19:50:17.943 -07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2025-08-16 02:50:17.935992+00:00');
+SELECT changes();
+2025-08-15 19:50:18.061 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2025-08-15 19:50:18.078 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2025-08-15 19:50:18.086 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-08-15 19:50:18.105 -07:00 [INF] No migrations were applied. The database is already up to date.
+2025-08-15 19:50:18.109 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "__EFMigrationsLock";
+2025-08-15 19:50:18.615 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS "u")
+2025-08-15 19:50:18.637 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Employees" AS "e")
+2025-08-15 19:50:19.187 -07:00 [INF] User profile is available. Using 'C:\Users\LAPTOP WORLD\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-08-15 19:50:19.546 -07:00 [WRN] The WebRootPath was not found: D:\VS Cummunity Projects\employee-management-monorepo\employee-management-system\Backend\EmployeeManagementSystem.Api\wwwroot. Static files may be unavailable.
+2025-08-15 19:50:20.196 -07:00 [INF] Now listening on: https://localhost:7164
+2025-08-15 19:50:20.211 -07:00 [INF] Now listening on: http://localhost:5151
+2025-08-15 19:50:20.550 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-15 19:50:20.564 -07:00 [INF] Hosting environment: Development
+2025-08-15 19:50:20.573 -07:00 [INF] Content root path: D:\VS Cummunity Projects\employee-management-monorepo\employee-management-system\Backend\EmployeeManagementSystem.Api
+2025-08-15 19:50:26.001 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger - null null
+2025-08-15 19:50:26.375 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger - 301 0 null 388.7907ms
+2025-08-15 19:50:26.466 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger/index.html - null null
+2025-08-15 19:50:26.634 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-15 19:50:26.638 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/_vs/browserLink - null null
+2025-08-15 19:50:26.810 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/_framework/aspnetcore-browser-refresh.js - 200 16541 application/javascript; charset=utf-8 175.7538ms
+2025-08-15 19:50:27.105 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger/index.html - 200 null text/html;charset=utf-8 639.6515ms
+2025-08-15 19:50:27.163 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/_vs/browserLink - 200 null text/javascript; charset=UTF-8 525.3159ms
+2025-08-15 19:50:27.452 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/swagger/v1/swagger.json - null null
+2025-08-15 19:50:27.508 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 56.4992ms
+2025-08-15 19:50:42.074 -07:00 [INF] Request starting HTTP/2 POST https://localhost:7164/api/Auth/login - application/json 51
+2025-08-15 19:50:42.091 -07:00 [INF] CORS policy execution failed.
+2025-08-15 19:50:42.096 -07:00 [INF] Request origin https://localhost:7164 does not have permission to access the resource.
+2025-08-15 19:50:44.371 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api)'
+2025-08-15 19:50:44.425 -07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(EmployeeManagementSystem.Api.DTOs.LoginDto) on controller EmployeeManagementSystem.Api.Controllers.AuthController (EmployeeManagementSystem.Api).
+2025-08-15 19:50:44.866 -07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__loginDto_Username_0='?' (Size = 5), @__loginDto_Password_1='?' (Size = 8)], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."Password", "u"."Role", "u"."Username"
+FROM "Users" AS "u"
+WHERE "u"."Username" = @__loginDto_Username_0 AND "u"."Password" = @__loginDto_Password_1
+LIMIT 1
+2025-08-15 19:50:45.077 -07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-15 19:50:45.096 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api) in 658.4289ms
+2025-08-15 19:50:45.101 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.AuthController.Login (EmployeeManagementSystem.Api)'
+2025-08-15 19:50:45.112 -07:00 [INF] Request finished HTTP/2 POST https://localhost:7164/api/Auth/login - 200 null application/json; charset=utf-8 3038.9333ms
+2025-08-15 19:51:04.452 -07:00 [INF] Request starting HTTP/2 GET https://localhost:7164/api/Employee - null null
+2025-08-15 19:51:04.579 -07:00 [INF] Executing endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-15 19:51:04.589 -07:00 [INF] Route matched with {action = "GetAll", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller EmployeeManagementSystem.Api.Controllers.EmployeeController (EmployeeManagementSystem.Api).
+2025-08-15 19:51:04.886 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."DateOfJoining", "e"."Department", "e"."Email", "e"."EmployeeCode", "e"."FullName", "e"."Salary"
+FROM "Employees" AS "e"
+2025-08-15 19:51:04.967 -07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EmployeeManagementSystem.Api.DTOs.EmployeeDto, EmployeeManagementSystem.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-15 19:51:04.993 -07:00 [INF] Executed action EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api) in 398.0785ms
+2025-08-15 19:51:05.003 -07:00 [INF] Executed endpoint 'EmployeeManagementSystem.Api.Controllers.EmployeeController.GetAll (EmployeeManagementSystem.Api)'
+2025-08-15 19:51:05.007 -07:00 [INF] Request finished HTTP/2 GET https://localhost:7164/api/Employee - 200 null application/json; charset=utf-8 556.0005ms

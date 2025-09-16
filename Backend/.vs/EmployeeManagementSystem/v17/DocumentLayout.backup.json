@@ -1,0 +1,96 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\VS Cummunity Projects\\employee-management-monorepo\\employee-management-system\\Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E559923F-5A83-4BE6-9BC5-68FF9711EB6A}|EmployeeManagementSystem.Api\\EmployeeManagementSystem.Api.csproj|d:\\vs cummunity projects\\employee-management-monorepo\\employee-management-system\\backend\\employeemanagementsystem.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E559923F-5A83-4BE6-9BC5-68FF9711EB6A}|EmployeeManagementSystem.Api\\EmployeeManagementSystem.Api.csproj|solutionrelative:employeemanagementsystem.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E559923F-5A83-4BE6-9BC5-68FF9711EB6A}|EmployeeManagementSystem.Api\\EmployeeManagementSystem.Api.csproj|d:\\vs cummunity projects\\employee-management-monorepo\\employee-management-system\\backend\\employeemanagementsystem.api\\appsettings.production.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E559923F-5A83-4BE6-9BC5-68FF9711EB6A}|EmployeeManagementSystem.Api\\EmployeeManagementSystem.Api.csproj|solutionrelative:employeemanagementsystem.api\\appsettings.production.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E559923F-5A83-4BE6-9BC5-68FF9711EB6A}|EmployeeManagementSystem.Api\\EmployeeManagementSystem.Api.csproj|d:\\vs cummunity projects\\employee-management-monorepo\\employee-management-system\\backend\\employeemanagementsystem.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E559923F-5A83-4BE6-9BC5-68FF9711EB6A}|EmployeeManagementSystem.Api\\EmployeeManagementSystem.Api.csproj|solutionrelative:employeemanagementsystem.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E559923F-5A83-4BE6-9BC5-68FF9711EB6A}|EmployeeManagementSystem.Api\\EmployeeManagementSystem.Api.csproj|d:\\vs cummunity projects\\employee-management-monorepo\\employee-management-system\\backend\\employeemanagementsystem.api\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E559923F-5A83-4BE6-9BC5-68FF9711EB6A}|EmployeeManagementSystem.Api\\EmployeeManagementSystem.Api.csproj|solutionrelative:employeemanagementsystem.api\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 250,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.Production.json",
+              "DocumentMoniker": "D:\\VS Cummunity Projects\\employee-management-monorepo\\employee-management-system\\Backend\\EmployeeManagementSystem.Api\\appsettings.Production.json",
+              "RelativeDocumentMoniker": "EmployeeManagementSystem.Api\\appsettings.Production.json",
+              "ToolTip": "D:\\VS Cummunity Projects\\employee-management-monorepo\\employee-management-system\\Backend\\EmployeeManagementSystem.Api\\appsettings.Production.json",
+              "RelativeToolTip": "EmployeeManagementSystem.Api\\appsettings.Production.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-14T21:15:17.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "D:\\VS Cummunity Projects\\employee-management-monorepo\\employee-management-system\\Backend\\EmployeeManagementSystem.Api\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "EmployeeManagementSystem.Api\\Controllers\\EmployeeController.cs",
+              "ToolTip": "D:\\VS Cummunity Projects\\employee-management-monorepo\\employee-management-system\\Backend\\EmployeeManagementSystem.Api\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "EmployeeManagementSystem.Api\\Controllers\\EmployeeController.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAmwE0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T09:31:29.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\VS Cummunity Projects\\employee-management-monorepo\\employee-management-system\\Backend\\EmployeeManagementSystem.Api\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "EmployeeManagementSystem.Api\\appsettings.Development.json",
+              "ToolTip": "D:\\VS Cummunity Projects\\employee-management-monorepo\\employee-management-system\\Backend\\EmployeeManagementSystem.Api\\appsettings.Development.json",
+              "RelativeToolTip": "EmployeeManagementSystem.Api\\appsettings.Development.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-13T08:36:36.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\VS Cummunity Projects\\employee-management-monorepo\\employee-management-system\\Backend\\EmployeeManagementSystem.Api\\Program.cs",
+              "RelativeDocumentMoniker": "EmployeeManagementSystem.Api\\Program.cs",
+              "ToolTip": "D:\\VS Cummunity Projects\\employee-management-monorepo\\employee-management-system\\Backend\\EmployeeManagementSystem.Api\\Program.cs",
+              "RelativeToolTip": "EmployeeManagementSystem.Api\\Program.cs",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAAwJUAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T08:29:25.641Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
